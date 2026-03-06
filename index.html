@@ -18,18 +18,40 @@
             --medium-gray: #6c757d;
             --white: #ffffff;
             --border-color: #dee2e6;
+            --arabic-font: 'Noto Naskh Arabic', serif;
         }
         body {
             color: var(--dark-gray);
             line-height: 1.7;
             background-color: var(--white);
         }
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+        .lang-btn {
+            padding: 8px 15px;
+            border: 1px solid var(--primary-blue);
+            border-radius: 4px;
+            background: var(--white);
+            color: var(--primary-blue);
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .lang-btn.active {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        /* 头部导航+首屏 对标Signify */
         .header {
             padding: 20px 0;
             border-bottom: 1px solid var(--border-color);
@@ -62,10 +84,25 @@
             color: var(--primary-blue);
         }
         .hero {
-            padding: 80px 0;
-            background: linear-gradient(to right, #003366, var(--primary-blue));
+            padding: 120px 0;
+            background: url('https://p11-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/5b12ea5a29b448e7896b9931b7536d45.png~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=2026030615504621A30B81B0D410C2376A&rrcfp=dafada99&x-expires=2089007446&x-signature=KnDBIkJDAQrUc%2BYrMUcqUwoSbvw%3D') no-repeat center center;
+            background-size: cover;
             color: var(--white);
             text-align: center;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 33, 65, 0.7);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
         .hero h1 {
             font-size: 3rem;
@@ -91,7 +128,6 @@
         .hero-cta:hover {
             transform: translateY(-3px);
         }
-        /* 通用模块样式 */
         .section {
             padding: 70px 0;
         }
@@ -112,7 +148,30 @@
         .bg-light {
             background-color: var(--light-gray);
         }
-        /* 关于我们模块 */
+        .arabic {
+            font-family: var(--arabic-font);
+            direction: rtl;
+            text-align: right;
+        }
+        .arabic .section-title,
+        .arabic .section-subtitle,
+        .arabic .hero-content {
+            text-align: right;
+        }
+        .arabic .hero-content {
+            text-align: center;
+        }
+        .arabic .nav {
+            flex-direction: row-reverse;
+        }
+        .arabic .about-content {
+            grid-template-columns: 1fr 1fr;
+            direction: rtl;
+        }
+        .arabic .product-features li::before {
+            margin-right: 0;
+            margin-left: 8px;
+        }
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -130,16 +189,21 @@
         }
         .about-img {
             width: 100%;
+            height: 350px;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--medium-gray);
         }
         .about-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        /* 核心实力数据模块 对标Signify */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -168,7 +232,6 @@
             color: var(--dark-gray);
             font-weight: 500;
         }
-        /* 产品矩阵模块 */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -191,6 +254,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            color: var(--medium-gray);
         }
         .product-img img {
             width: 100%;
@@ -222,7 +286,6 @@
             font-weight: 700;
             margin-right: 8px;
         }
-        /* 埃及本地服务模块 核心定位 */
         .local-service {
             background: linear-gradient(to right, #003366, var(--primary-blue));
             color: var(--white);
@@ -254,7 +317,6 @@
             border-radius: 50px;
             font-weight: 500;
         }
-        /* 合规与认证模块 */
         .cert-grid {
             display: flex;
             flex-wrap: wrap;
@@ -272,7 +334,6 @@
             font-size: 1.2rem;
             color: var(--dark-gray);
         }
-        /* CTA转化模块 对标Signify */
         .cta-section {
             padding: 80px 0;
             text-align: center;
@@ -306,8 +367,8 @@
         .contact-item p {
             color: var(--dark-gray);
             font-weight: 500;
+            margin: 0;
         }
-        /* 页脚 */
         .footer {
             padding: 40px 0;
             background: var(--dark-gray);
@@ -316,8 +377,8 @@
         }
         .footer p {
             opacity: 0.8;
+            margin: 0;
         }
-        /* 移动端适配 */
         @media (max-width: 768px) {
             .nav {
                 display: none;
@@ -334,126 +395,297 @@
             .stat-number {
                 font-size: 2.5rem;
             }
+            .lang-switch {
+                top: 10px;
+                right: 10px;
+            }
+            .lang-btn {
+                padding: 5px 10px;
+                font-size: 0.9rem;
+            }
+        }
+        .ar-content {
+            display: none;
+        }
+        .en-content {
+            display: block;
+        }
+        body.arabic .ar-content {
+            display: block;
+        }
+        body.arabic .en-content {
+            display: none;
+        }
+        .hero-logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 2;
+            width: 120px;
+            height: auto;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- 头部导航 -->
+    <div class="lang-switch">
+        <button class="lang-btn active" id="en-btn">English</button>
+        <button class="lang-btn" id="ar-btn">العربية</button>
+    </div>
+
     <header class="header">
         <div class="container header-content">
             <div class="logo">CX Lighting</div>
             <nav class="nav">
-                <a href=" ">About Us</a >
-                <a href="#strength">Our Strength</a >
-                <a href="#products">Products</a >
-                <a href="#egypt-service">Egypt Service</a >
-                <a href="#contact">Contact Us</a >
+                <a href="#about" class="en-content">About Us</a>
+                <a href="#strength" class="en-content">Our Strength</a>
+                <a href="#products" class="en-content">Products</a>
+                <a href="#egypt-service" class="en-content">Egypt Service</a>
+                <a href="#contact" class="en-content">Contact Us</a>
+                <a href="#about" class="ar-content">معلومات عنا</a>
+                <a href="#strength" class="ar-content">قوتنا الأساسية</a>
+                <a href="#products" class="ar-content">المنتجات</a>
+                <a href="#egypt-service" class="ar-content">خدمة مصر</a>
+                <a href="#contact" class="ar-content">اتصل بنا</a>
             </nav>
         </div>
     </header>
 
-    <!-- 首屏Hero 对标Signify核心价值主张 -->
     <section class="hero">
-        <div class="container">
-            <h1>Egypt Systematic Lighting Solution Expert</h1>
-            <p>Anhui Chenxin Lighting Electrical Appliance Co., Ltd. | 20 Years of Professional Lighting Manufacturing | Global Export to 60+ Countries</p >
-            <a href="#contact" class="hero-cta">Start Your Project With Us</a >
+        <img src="https://p11-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/5b12ea5a29b448e7896b9931b7536d45.png~tplv-a9rns2rl98-image.png?lk3s=8e244e95&rcl=2026030615504621A30B81B0D410C2376A&rrcfp=dafada99&x-expires=2089007446&x-signature=KnDBIkJDAQrUc%2BYrMUcqUwoSbvw%3D" alt="CX Lighting Logo" class="hero-logo">
+        <div class="container hero-content">
+            <div class="en-content">
+                <h1>Egypt Systematic Lighting Solution Expert</h1>
+                <p>Anhui Chenxin Lighting Electrical Appliance Co., Ltd. | 20 Years of Professional Lighting Manufacturing | Global Export to 60+ Countries</p>
+                <a href="#contact" class="hero-cta">Start Your Project With Us</a>
+            </div>
+            <div class="ar-content">
+                <h1>خبير الحلول الإضاءة المنهجية في مصر</h1>
+                <p>شركة أن'hui تشينسين للكهرباء والإضاءة المحدودة | 20 سنة من تصنيع الإضاءة المهنية | تصدير عالمي إلى أكثر من 60 دولة</p>
+                <a href="#contact" class="hero-cta">ابدأ مشروعك معنا</a>
+            </div>
         </div>
     </section>
 
-    <!-- 关于我们模块 -->
-    <section class="section" id="about">
+    <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">About CX Lighting</h2>
-            <p class="section-subtitle">Leading LED Lighting Manufacturer in China, Committed to Creating Value for Global Partners</p >
+            <h2 class="section-title en-content">About CX Lighting</h2>
+            <p class="section-subtitle en-content">A professional lighting manufacturer dedicated to providing high-quality products and services to global clients.</p>
+            <h2 class="section-title ar-content">عن شركة CX Lighting</h2>
+            <p class="section-subtitle ar-content">شركة تصنيع إضاءة احترافية مكرسة لتقديم منتجات وخدمات عالية الجودة لعملائنا العالميين.</p>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Anhui Chenxin Lighting Electrical Appliance Co., Ltd.</h3>
-                    <p>Headquartered in Anhui, China, we are a large-scale professional lighting manufacturer with 20 years of solid industry experience, integrating R&D, production and sales. As a leading domestic LED lighting manufacturer, we have a complete industrial chain from core component production to finished product delivery.</p >
-                    <p>Our products are exported to more than 60 countries and regions including the United States, Brazil, Mexico, Germany, Spain, the UK, South Africa, Iran, Israel, Pakistan, etc., through online B2B platforms (Made-in-China, Global Sources, Alibaba) and offline physical sales channels.</p >
-                    <p>Our mission: Creating value for clients, Offering opportunities to staff, Bringing wealth to society. We look forward to achieving win-win success with all partners through our superior products, reputation and services.</p >
+                    <h3 class="en-content">20 Years of Expertise</h3>
+                    <p class="en-content">Founded in 2005, Anhui Chenxin Lighting has over two decades of experience in the lighting industry. We specialize in the R&D, manufacturing, and distribution of a wide range of lighting products, including LED street lights, floodlights, and industrial lighting solutions.</p>
+                    <p class="en-content">Our commitment to innovation and quality has earned us a reputation as a trusted partner for clients in over 60 countries worldwide.</p>
+                    <h3 class="ar-content">20 سنة من الخبرة</h3>
+                    <p class="ar-content">تأسست شركة أن'hui تشينسين للإضاءة في عام 2005، وتمتلك أكثر من عقدين من الخبرة في صناعة الإضاءة. نحن متخصصون في البحث والتطوير والتصنيع وتوزيع مجموعة واسعة من منتجات الإضاءة، بما في ذلك أضواء الشوارع LED، ومصباحات الفيضان، وحلول الإضاءة الصناعية.</p>
+                    <p class="ar-content">لقد اكتسبت شركتنا سمعة كشريك موثوق لعملائنا في أكثر من 60 دولة حول العالم بفضل التزامنا بالابتكار والجودة.</p>
                 </div>
                 <div class="about-img">
-                    <!-- 这里替换为你的工厂全景/厂区实景图地址 -->
-                    < img src="" alt="CX Lighting Factory">
+                    <img src="https://via.placeholder.com/600x350" alt="Factory Image">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 核心实力模块 对标Signify数据背书 -->
-    <section class="section bg-light" id="strength">
+    <section id="strength" class="section bg-light">
         <div class="container">
-            <h2 class="section-title">Our Core Strength</h2>
-            <p class="section-subtitle">Full-process Independent Production, Strong and Stable Supply Capacity</p >
+            <h2 class="section-title en-content">Our Core Strength</h2>
+            <p class="section-subtitle en-content">What makes us stand out in the global lighting market.</p>
+            <h2 class="section-title ar-content">قوتنا الأساسية</h2>
+            <p class="section-subtitle ar-content">ما الذي يجعلنا نبرز في سوق الإضاءة العالمي.</p>
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number">20</div>
-                    <div class="stat-text">Years of Industry Experience</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">50,000 ㎡</div>
-                    <div class="stat-text">Factory Area</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">45</div>
-                    <div class="stat-text">Standard Production Lines</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">2000+</div>
-                    <div class="stat-text">Skilled Workers & Professionals</div>
+                    <div class="stat-number">20+</div>
+                    <div class="stat-text en-content">Years of Experience</div>
+                    <div class="stat-text ar-content">سنوات من الخبرة</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">60+</div>
-                    <div class="stat-text">Countries & Regions Exported</div>
+                    <div class="stat-text en-content">Countries Exported</div>
+                    <div class="stat-text ar-content">الدول المصدرة إليها</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">2 Years</div>
-                    <div class="stat-text">Standard Product Warranty</div>
+                    <div class="stat-number">100+</div>
+                    <div class="stat-text en-content">Product SKUs</div>
+                    <div class="stat-text ar-content">وحدات المنتجات</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-text en-content">Global Support</div>
+                    <div class="stat-text ar-content">الدعم العالمي</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 产品矩阵模块 核心品类展示 -->
-    <section class="section" id="products">
+    <section id="products" class="section">
         <div class="container">
-            <h2 class="section-title">Our Product Portfolio</h2>
-            <p class="section-subtitle">Full-scene Lighting Products, Supporting Standard Mass Production & Customized Solutions</p >
+            <h2 class="section-title en-content">Our Product Portfolio</h2>
+            <p class="section-subtitle en-content">A comprehensive range of lighting solutions for various applications.</p>
+            <h2 class="section-title ar-content">محفظة منتجاتنا</h2>
+            <p class="section-subtitle ar-content">مجموعة شاملة من حلول الإضاءة لتطبيقات متنوعة.</p>
             <div class="products-grid">
-                <!-- 产品1：LED面板灯 核心主打 -->
                 <div class="product-card">
                     <div class="product-img">
-                        <!-- 这里替换为LED面板灯产品图地址 -->
-                        < img src="" alt="LED Panel Light">
+                        <img src="https://via.placeholder.com/400x200" alt="LED Street Light">
                     </div>
                     <div class="product-info">
-                        <h4>LED Panel Light</h4>
-                        <p>Core Flagship Product, Full Model Coverage</p >
+                        <h4 class="en-content">LED Street Lights</h4>
+                        <p class="en-content">High-efficiency, long-lasting LED street lights for urban infrastructure.</p>
                         <ul class="product-features">
-                            <li>Power Range: 5W-96W</li>
-                            <li>Recessed/Surface/frameless Models</li>
-                            <li>Ra>80, Up to 100lm/w</li>
-                            <li>2 Years Standard Warranty</li>
+                            <li class="en-content">Energy saving up to 70%</li>
+                            <li class="en-content">IP66 waterproof rating</li>
+                            <li class="en-content">5-year warranty</li>
+                        </ul>
+                        <h4 class="ar-content">أضواء الشوارع LED</h4>
+                        <p class="ar-content">أضواء شوارع LED عالية الكفاءة وطويلة الأمد للبنية التحتية الحضرية.</p>
+                        <ul class="product-features">
+                            <li class="ar-content">توفير الطاقة بنسبة تصل إلى 70%</li>
+                            <li class="ar-content">تصنيف مقاوم للماء IP66</li>
+                            <li class="ar-content">ضمان لمدة 5 سنوات</li>
                         </ul>
                     </div>
                 </div>
-                <!-- 产品2：LED投光灯 -->
                 <div class="product-card">
                     <div class="product-img">
-                        <!-- 这里替换为LED投光灯产品图地址 -->
-                        < img src="" alt="LED Floodlight">
+                        <img src="https://via.placeholder.com/400x200" alt="LED Flood Light">
                     </div>
                     <div class="product-info">
-                        <h4>LED Floodlight</h4>
-                        <p>Outdoor Professional Lighting Solution</p >
+                        <h4 class="en-content">LED Flood Lights</h4>
+                        <p class="en-content">Powerful and versatile floodlights for stadiums, industrial areas, and security lighting.</p>
                         <ul class="product-features">
-                            <li>Power Range: 30W-400W</li>
-                            <li>IP65 Waterproof & Dustproof</li>
-                            <li>High Brightness LED Chip</li>
-                            <li>PF>0.9, Stable Performance</li>
+                            <li class="en-content">High lumen output</li>
+                            <li class="en-content">Adjustable beam angles</li>
+                            <li class="en-content">Corrosion-resistant housing</li>
+                        </ul>
+                        <h4 class="ar-content">مصباحات الفيضان LED</h4>
+                        <p class="ar-content">مصباحات فيضان قوية ومتعددة الاستخدامات للملاعب والمناطق الصناعية والإضاءة الأمنية.</p>
+                        <ul class="product-features">
+                            <li class="ar-content">إنتاج لومين عالي</li>
+                            <li class="ar-content">زوايا شعاع قابلة للتعديل</li>
+                            <li class="ar-content">غلاف مقاوم للتآكل</li>
                         </ul>
                     </div>
                 </div>
-                <!-- 产品3：LED路灯 -->
-                <div class="product-card">...
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://via.placeholder.com/400x200" alt="Industrial Lighting">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="en-content">Industrial Lighting</h4>
+                        <p class="en-content">Durable and reliable lighting solutions for factories, warehouses, and harsh environments.</p>
+                        <ul class="product-features">
+                            <li class="en-content">Explosion-proof options</li>
+                            <li class="en-content">High temperature resistance</li>
+                            <li class="en-content">Low maintenance requirements</li>
+                        </ul>
+                        <h4 class="ar-content">الإضاءة الصناعية</h4>
+                        <p class="ar-content">حلول إضاءة متينة وموثوقة للمصانع والمستودعات والبيئات القاسية.</p>
+                        <ul class="product-features">
+                            <li class="ar-content">خيارات مقاومة للانفجار</li>
+                            <li class="ar-content">مقاومة لدرجات الحرارة العالية</li>
+                            <li class="ar-content">متطلبات صيانة منخفضة</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="egypt-service" class="section local-service">
+        <div class="container">
+            <div class="service-content">
+                <h2 class="en-content">Dedicated Service for Egypt</h2>
+                <p class="en-content">We provide end-to-end lighting solutions tailored specifically for the Egyptian market, from product design and manufacturing to installation and after-sales support.</p>
+                <h2 class="ar-content">خدمة مخصصة لمصر</h2>
+                <p class="ar-content">نحن نقدم حلول إضاءة شاملة مصممة خصيصًا للسوق المصري، بدءًا من تصميم المنتجات والتصنيع وحتى التركيب والدعم بعد البيع.</p>
+                <div class="service-areas">
+                    <span class="area-tag en-content">Cairo</span>
+                    <span class="area-tag en-content">Alexandria</span>
+                    <span class="area-tag en-content">Giza</span>
+                    <span class="area-tag en-content">Suez</span>
+                    <span class="area-tag en-content">All Egyptian Provinces</span>
+                    <span class="area-tag ar-content">القاهرة</span>
+                    <span class="area-tag ar-content">الإسكندرية</span>
+                    <span class="area-tag ar-content">الجيزة</span>
+                    <span class="area-tag ar-content">السويس</span>
+                    <span class="area-tag ar-content">جميع محافظات مصر</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title en-content">Certifications & Compliance</h2>
+            <p class="section-subtitle en-content">Our products meet international standards and are certified for global markets.</p>
+            <h2 class="section-title ar-content">الشهادات والامتثال</h2>
+            <p class="section-subtitle ar-content">منتجاتنا تفي بالمعايير الدولية ومصدقة للأسواق العالمية.</p>
+            <div class="cert-grid">
+                <div class="cert-card">CE</div>
+                <div class="cert-card">RoHS</div>
+                <div class="cert-card">ISO 9001</div>
+                <div class="cert-card">SASO</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <h2 class="en-content">Ready to Illuminate Your Project?</h2>
+            <p class="en-content">Contact our Egypt market specialist today to discuss your lighting requirements and get a free quote.</p>
+            <h2 class="ar-content">جاهز لإضاءة مشروعك؟</h2>
+            <p class="ar-content">اتصل بمتخصص سوق مصر اليوم لمناقشة متطلبات الإضاءة الخاصة بك والحصول على عرض أسعار مجاني.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4 class="en-content">Egypt Market Specialist</h4>
+                    <p class="en-content">+20 100 123 4567</p>
+                    <h4 class="ar-content">متخصص سوق مصر</h4>
+                    <p class="ar-content">+20 100 123 4567</p>
+                </div>
+                <div class="contact-item">
+                    <h4 class="en-content">Email</h4>
+                    <p class="en-content">egypt@cx-lighting.com</p>
+                    <h4 class="ar-content">البريد الإلكتروني</h4>
+                    <p class="ar-content">egypt@cx-lighting.com</p>
+                </div>
+                <div class="contact-item">
+                    <h4 class="en-content">Headquarters</h4>
+                    <p class="en-content">Anhui, China</p>
+                    <h4 class="ar-content">المقر الرئيسي</h4>
+                    <p class="ar-content">أن'hui، الصين</p>
+                </div>
+            </div>
+            <a href="mailto:egypt@cx-lighting.com" class="hero-cta en-content">Send Us an Inquiry</a>
+            <a href="mailto:egypt@cx-lighting.com" class="hero-cta ar-content">أرسل لنا استفسارًا</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="en-content">&copy; 2024 Anhui Chenxin Lighting Electrical Appliance Co., Ltd. All rights reserved.</p>
+            <p class="ar-content">&copy; 2024 شركة أن'hui تشينسين للكهرباء والإضاءة المحدودة. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script>
+        const enBtn = document.getElementById('en-btn');
+        const arBtn = document.getElementById('ar-btn');
+        const body = document.body;
+
+        enBtn.addEventListener('click', () => {
+            body.classList.remove('arabic');
+            enBtn.classList.add('active');
+            arBtn.classList.remove('active');
+        });
+
+        arBtn.addEventListener('click', () => {
+            body.classList.add('arabic');
+            arBtn.classList.add('active');
+            enBtn.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
