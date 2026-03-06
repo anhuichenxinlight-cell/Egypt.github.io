@@ -1,160 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CX Lighting - Egypt</title>
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CX Lighting - Smart Lighting Solutions for Egypt</title>
+    <!-- 引入Signify风格的字体和样式 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* 全局样式：完全对齐Signify的简约专业风格 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        :root {
+            --primary: #0066CC; /* Signify主蓝色 */
+            --dark: #1A1A1A;
+            --light: #F5F7FA;
+            --gray: #666666;
+            --white: #FFFFFF;
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        body {
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-/* 背景图（你那张带Logo的图）*/
-.hero {
-  width: 100%;
-  height: 600px;
-  background: url("https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/3b51234567890abcdef.png") center center / cover no-repeat;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-}
+        /* 导航栏：Signify风格，左上角Logo */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            z-index: 999;
+            padding: 1rem 0;
+        }
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px; /* 调整Logo大小 */
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+        .nav-links a {
+            font-weight: 500;
+            color: var(--dark);
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .lang-switch {
+            display: flex;
+            gap: 1rem;
+        }
+        .lang-btn {
+            padding: 0.4rem 1rem;
+            border: 1px solid var(--primary);
+            border-radius: 4px;
+            background: transparent;
+            color: var(--primary);
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .lang-btn.active {
+            background: var(--primary);
+            color: var(--white);
+        }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.4);
-  z-index: 1;
-}
+        /* 首屏Hero：Signify全屏背景风格 */
+        .hero {
+            height: 100vh;
+            background: url("【替换成hero-bg.png的Raw地址】") center center / cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px; /* 避开导航栏 */
+        }
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        .btn-primary {
+            padding: 1rem 2.5rem;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .btn-primary:hover {
+            background: #0052A3;
+        }
 
-.hero .content {
-  position: relative;
-  z-index: 2;
-}
+        /* 产品板块：Signify卡片式布局 */
+        .products {
+            padding: 6rem 0;
+            background: var(--light);
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: var(--dark);
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .product-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+        .product-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 1.5rem;
+        }
+        .product-info h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+        .product-info p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
 
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
+        /* 双语切换：核心逻辑 */
+        .en-content { display: block; }
+        .ar-content { display: none; direction: rtl; }
+        body.arabic .en-content { display: none; }
+        body.arabic .ar-content { display: block; }
+        body.arabic .nav-links { flex-direction: row-reverse; }
+        body.arabic .lang-switch { flex-direction: row-reverse; }
 
-.hero p {
-  font-size: 20px;
-  max-width: 800px;
-  margin: 0 auto 30px;
-}
-
-/* 语言切换 */
-.lang {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 999;
-}
-.lang button {
-  padding: 8px 16px;
-  margin-left: 8px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  background: white;
-  color: #0056b3;
-  font-weight: bold;
-}
-.lang button.active {
-  background: #0056b3;
-  color: white;
-}
-
-/* 英语/阿拉伯语切换显示 */
-.en { display: block; }
-.ar { display: none; }
-body.arabic .en { display: none; }
-body.arabic .ar { display: block; direction: rtl; }
-
-/* 简单页面样式 */
-.section {
-  padding: 80px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-}
-.section h2 {
-  font-size: 32px;
-  margin-bottom: 20px;
-}
-.section p {
-  font-size: 18px;
-  line-height: 1.7;
-  color: #333;
-}
-</style>
+        /* 响应式：适配手机 */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            .product-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
 </head>
-
 <body>
+    <!-- 导航栏：左上角显示你的Logo -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="logo">
+                <img src="【替换成logo.png的Raw地址】" alt="CX Lighting Logo">
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="en-content">Home</a>
+                <a href="#products" class="en-content">Products</a>
+                <a href="#about" class="en-content">About Us</a>
+                <a href="#contact" class="en-content">Contact</a>
+                
+                <a href="#home" class="ar-content">الرئيسية</a>
+                <a href="#products" class="ar-content">المنتجات</a>
+                <a href="#about" class="ar-content">معلومات عنا</a>
+                <a href="#contact" class="ar-content">اتصل بنا</a>
+            </div>
+            <div class="lang-switch">
+                <button class="lang-btn active" id="en-btn">English</button>
+                <button class="lang-btn" id="ar-btn">العربية</button>
+            </div>
+        </div>
+    </nav>
 
-<!-- 语言按钮 -->
-<div class="lang">
-  <button id="btn-en" class="active">English</button>
-  <button id="btn-ar">العربية</button>
-</div>
+    <!-- 首屏：Signify风格全屏背景 -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="en-content">
+                <h1>Smart Lighting Solutions for Egypt</h1>
+                <p>CX Lighting - 20 Years of Expertise in LED Lighting Manufacturing, Trusted by 60+ Countries</p>
+                <a href="#products" class="btn-primary">Explore Our Products</a>
+            </div>
+            <div class="ar-content">
+                <h1>حلول إضاءة ذكية لمصر</h1>
+                <p>CX Lighting - 20 سنة من الخبرة في تصنيع الإضاءة LED، موثوق بها من أكثر من 60 دولة</p>
+                <a href="#products" class="btn-primary">اكتشف منتجاتنا</a>
+            </div>
+        </div>
+    </section>
 
-<!-- 顶部大图背景（你那张图） -->
-<section class="hero">
-  <div class="content">
-    <h1 class="en">Professional Lighting Solutions for Egypt</h1>
-    <h1 class="ar">حلول إضاءة احترافية لمصر</h1>
-    <p class="en">Anhui Chenxin Lighting - Reliable Partner for Street Light, Flood Light, Industrial Lighting</p>
-    <p class="ar">شركة أنحيوي تشين شين للإضاءة - شريكك الموثوق لأضواء الشوارع والفيضانات والإضاءة الصناعية</p>
-  </div>
-</section>
+    <!-- 产品板块：Signify卡片式布局 -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title en-content">Our Lighting Solutions</h2>
+            <h2 class="section-title ar-content">حلول الإضاءة لدينا</h2>
+            
+            <div class="product-grid">
+                <!-- 产品1 -->
+                <div class="product-card">
+                    <img src="【替换成product1.jpg的Raw地址】" alt="LED Street Light" class="product-img">
+                    <div class="product-info">
+                        <h3 class="en-content">LED Street Light</h3>
+                        <h3 class="ar-content">إضاءة شوارع LED</h3>
+                        <p class="en-content">Energy-efficient, durable street lighting for urban areas.</p>
+                        <p class="ar-content">إضاءة شوارع موفرة للطاقة ومتينة للمناطق الحضرية.</p>
+                    </div>
+                </div>
+                <!-- 产品2 -->
+                <div class="product-card">
+                    <img src="【替换成product2.jpg的Raw地址】" alt="LED Flood Light" class="product-img">
+                    <div class="product-info">
+                        <h3 class="en-content">LED Flood Light</h3>
+                        <h3 class="ar-content">إضاءة فيضان LED</h3>
+                        <p class="en-content">High-power flood lights for industrial and commercial use.</p>
+                        <p class="ar-content">مصباحات فيضان عالية القوة للاستخدام الصناعي والتجاري.</p>
+                    </div>
+                </div>
+                <!-- 产品3 -->
+                <div class="product-card">
+                    <img src="【替换成product3.jpg的Raw地址】" alt="Solar Lighting" class="product-img">
+                    <div class="product-info">
+                        <h3 class="en-content">Solar Lighting</h3>
+                        <h3 class="ar-content">إضاءة شمسية</h3>
+                        <p class="en-content">Eco-friendly solar lighting solutions for remote areas.</p>
+                        <p class="ar-content">حلول إضاءة شمسية صديقة للبيئة للمناطق النائية.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- 关于我们 -->
-<section class="section">
-  <h2 class="en">About Us</h2>
-  <h2 class="ar">معلومات عنا</h2>
-  <p class="en">We have 20+ years of manufacturing experience, exporting to 60+ countries. We provide high-quality LED lighting solutions for Egypt market.</p>
-  <p class="ar">نحن نمتلك أكثر من 20 عامًا من الخبرة في التصنيع، ونصدر إلى أكثر من 60 دولة. نقدم حلول إضاءة LED عالية الجودة لسوق مصر.</p>
-</section>
+    <!-- 双语切换脚本 -->
+    <script>
+        const enBtn = document.getElementById('en-btn');
+        const arBtn = document.getElementById('ar-btn');
+        const body = document.body;
 
-<!-- 产品 -->
-<section class="section" style="background:#f5f5f5">
-  <h2 class="en">Our Products</h2>
-  <h2 class="ar">منتجاتنا</h2>
-  <p class="en">LED Street Light • LED Flood Light • Industrial Light • Solar Light • High Bay Light</p>
-  <p class="ar">إضاءة شوارع LED • إضاءة فيضان LED • إضاءة صناعية • إضاءة شمسية • إضاءة عالية</p>
-</section>
+        enBtn.addEventListener('click', () => {
+            body.classList.remove('arabic');
+            enBtn.classList.add('active');
+            arBtn.classList.remove('active');
+        });
 
-<!-- 联系我们 -->
-<section class="section">
-  <h2 class="en">Contact Us</h2>
-  <h2 class="ar">اتصل بنا</h2>
-  <p class="en">Email: your-email@cx-lighting.com | WhatsApp: +20 xxxxxxxxxx</p>
-  <p class="ar">البريد الإلكتروني: your-email@cx-lighting.com | واتساب: +20 xxxxxxxxxx</p>
-</section>
-
-<script>
-const btnEn = document.getElementById('btn-en');
-const btnAr = document.getElementById('btn-ar');
-const body = document.body;
-
-btnEn.addEventListener('click', () => {
-  body.classList.remove('arabic');
-  btnEn.classList.add('active');
-  btnAr.classList.remove('active');
-});
-
-btnAr.addEventListener('click', () => {
-  body.classList.add('arabic');
-  btnAr.classList.add('active');
-  btnEn.classList.remove('active');
-});
-</script>
-
+        arBtn.addEventListener('click', () => {
+            body.classList.add('arabic');
+            arBtn.classList.add('active');
+            enBtn.classList.remove('active');
+        });
+    </script>
 </body>
 </html>
