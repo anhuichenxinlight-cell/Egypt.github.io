@@ -3,24 +3,457 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CxLighting: Egypt Systematic Lighting Solution Expert</title>
-    <meta name="description" content="Official local service and verification page for CxLighting's systematic lighting solutions in Egypt.">
+    <title>CX Lighting | Egypt Systematic Lighting Solution Expert</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        :root {
+            --primary-blue: #0056b3;
+            --dark-gray: #212529;
+            --light-gray: #f8f9fa;
+            --medium-gray: #6c757d;
+            --white: #ffffff;
+            --border-color: #dee2e6;
+        }
+        body {
+            color: var(--dark-gray);
+            line-height: 1.7;
+            background-color: var(--white);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* 头部导航+首屏 对标Signify */
+        .header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            z-index: 999;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+        .nav a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav a:hover {
+            color: var(--primary-blue);
+        }
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(to right, #003366, var(--primary-blue));
+            color: var(--white);
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
+        }
+        .hero-cta {
+            display: inline-block;
+            padding: 12px 35px;
+            background: var(--white);
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+        }
+        .hero-cta:hover {
+            transform: translateY(-3px);
+        }
+        /* 通用模块样式 */
+        .section {
+            padding: 70px 0;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-size: 1.1rem;
+        }
+        .bg-light {
+            background-color: var(--light-gray);
+        }
+        /* 关于我们模块 */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        .about-img {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* 核心实力数据模块 对标Signify */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .stat-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+        .stat-text {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            font-weight: 500;
+        }
+        /* 产品矩阵模块 */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .product-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .product-img {
+            width: 100%;
+            height: 200px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 20px;
+        }
+        .product-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-gray);
+        }
+        .product-info p {
+            color: var(--medium-gray);
+            margin-bottom: 15px;
+        }
+        .product-features {
+            list-style: none;
+        }
+        .product-features li {
+            padding: 5px 0;
+            font-size: 0.95rem;
+        }
+        .product-features li::before {
+            content: "✓";
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin-right: 8px;
+        }
+        /* 埃及本地服务模块 核心定位 */
+        .local-service {
+            background: linear-gradient(to right, #003366, var(--primary-blue));
+            color: var(--white);
+        }
+        .service-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .service-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        .service-content p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        .service-areas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .area-tag {
+            padding: 8px 20px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50px;
+            font-weight: 500;
+        }
+        /* 合规与认证模块 */
+        .cert-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .cert-card {
+            padding: 20px 40px;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+        }
+        /* CTA转化模块 对标Signify */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--medium-gray);
+        }
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+        .contact-item {
+            text-align: center;
+        }
+        .contact-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+        }
+        .contact-item p {
+            color: var(--dark-gray);
+            font-weight: 500;
+        }
+        /* 页脚 */
+        .footer {
+            padding: 40px 0;
+            background: var(--dark-gray);
+            color: var(--white);
+            text-align: center;
+        }
+        .footer p {
+            opacity: 0.8;
+        }
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
-<body style="font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 0 20px;">
-    <h1>CxLighting: Egypt Systematic Lighting Solution Expert</h1>
+<body>
+    <!-- 头部导航 -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">CX Lighting</div>
+            <nav class="nav">
+                <a href=" ">About Us</a >
+                <a href="#strength">Our Strength</a >
+                <a href="#products">Products</a >
+                <a href="#egypt-service">Egypt Service</a >
+                <a href="#contact">Contact Us</a >
+            </nav>
+        </div>
+    </header>
 
-    <p>Anhui Chenxin Lighting Electrical Appliance Co., Ltd., headquartered in Anhui, China, is a professional large-scale manufacturer of all types of lighting products with 20 years of solid experience in the lighting industry.</p >
+    <!-- 首屏Hero 对标Signify核心价值主张 -->
+    <section class="hero">
+        <div class="container">
+            <h1>Egypt Systematic Lighting Solution Expert</h1>
+            <p>Anhui Chenxin Lighting Electrical Appliance Co., Ltd. | 20 Years of Professional Lighting Manufacturing | Global Export to 60+ Countries</p >
+            <a href="#contact" class="hero-cta">Start Your Project With Us</a >
+        </div>
+    </section>
 
-    <p>As a leading domestic manufacturer of LED Lighting products, we integrate development and manufacturing, specializing in LED various lamps, LED filament bulbs, LED panel lights, LED corn bulbs and 18W LED glass tubes, luxury light, holiday light & garden light, solar light, stage light and customized products.</p >
+    <!-- 关于我们模块 -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">About CX Lighting</h2>
+            <p class="section-subtitle">Leading LED Lighting Manufacturer in China, Committed to Creating Value for Global Partners</p >
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Anhui Chenxin Lighting Electrical Appliance Co., Ltd.</h3>
+                    <p>Headquartered in Anhui, China, we are a large-scale professional lighting manufacturer with 20 years of solid industry experience, integrating R&D, production and sales. As a leading domestic LED lighting manufacturer, we have a complete industrial chain from core component production to finished product delivery.</p >
+                    <p>Our products are exported to more than 60 countries and regions including the United States, Brazil, Mexico, Germany, Spain, the UK, South Africa, Iran, Israel, Pakistan, etc., through online B2B platforms (Made-in-China, Global Sources, Alibaba) and offline physical sales channels.</p >
+                    <p>Our mission: Creating value for clients, Offering opportunities to staff, Bringing wealth to society. We look forward to achieving win-win success with all partners through our superior products, reputation and services.</p >
+                </div>
+                <div class="about-img">
+                    <!-- 这里替换为你的工厂全景/厂区实景图地址 -->
+                    < img src="" alt="CX Lighting Factory">
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <p>Our factory covers 50,000 m² with more than 2,000 skilled workers and lighting professionals, supporting 45 production lines and key components throughout our own B2B platforms (Made-in-China, Global sources) and physical sales channels in major cities. We export to more than 60 countries, including the United States, Brazil, Mexico, Germany, Spain, UK, South Africa, Iran, Israel, Pakistan, etc.</p >
+    <!-- 核心实力模块 对标Signify数据背书 -->
+    <section class="section bg-light" id="strength">
+        <div class="container">
+            <h2 class="section-title">Our Core Strength</h2>
+            <p class="section-subtitle">Full-process Independent Production, Strong and Stable Supply Capacity</p >
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">20</div>
+                    <div class="stat-text">Years of Industry Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50,000 ㎡</div>
+                    <div class="stat-text">Factory Area</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">45</div>
+                    <div class="stat-text">Standard Production Lines</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2000+</div>
+                    <div class="stat-text">Skilled Workers & Professionals</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">60+</div>
+                    <div class="stat-text">Countries & Regions Exported</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2 Years</div>
+                    <div class="stat-text">Standard Product Warranty</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <p>By stating our mission, "Creating value for clients, Offering opportunities to staff, Bringing wealth to society", we expect to achieve wonderful success with all of our partners with our superior products, reputation and services.</p >
-
-    <p>This is our official local service and verification page for Egypt. We provide local user support, regional verification and official authentication services for our lighting solutions in Egypt.</p >
-
-    <p>This service is only available for users in Egypt, including Cairo, Alexandria, Giza, and all governorates of Egypt.</p >
-
-    <p>This page is for regional authentication only. All services comply with local laws and platform policies.</p >
-</body>
-</html>
+    <!-- 产品矩阵模块 核心品类展示 -->
+    <section class="section" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Product Portfolio</h2>
+            <p class="section-subtitle">Full-scene Lighting Products, Supporting Standard Mass Production & Customized Solutions</p >
+            <div class="products-grid">
+                <!-- 产品1：LED面板灯 核心主打 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <!-- 这里替换为LED面板灯产品图地址 -->
+                        < img src="" alt="LED Panel Light">
+                    </div>
+                    <div class="product-info">
+                        <h4>LED Panel Light</h4>
+                        <p>Core Flagship Product, Full Model Coverage</p >
+                        <ul class="product-features">
+                            <li>Power Range: 5W-96W</li>
+                            <li>Recessed/Surface/frameless Models</li>
+                            <li>Ra>80, Up to 100lm/w</li>
+                            <li>2 Years Standard Warranty</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 产品2：LED投光灯 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <!-- 这里替换为LED投光灯产品图地址 -->
+                        < img src="" alt="LED Floodlight">
+                    </div>
+                    <div class="product-info">
+                        <h4>LED Floodlight</h4>
+                        <p>Outdoor Professional Lighting Solution</p >
+                        <ul class="product-features">
+                            <li>Power Range: 30W-400W</li>
+                            <li>IP65 Waterproof & Dustproof</li>
+                            <li>High Brightness LED Chip</li>
+                            <li>PF>0.9, Stable Performance</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 产品3：LED路灯 -->
+                <div class="product-card">...
