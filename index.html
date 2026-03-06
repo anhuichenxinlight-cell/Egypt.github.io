@@ -1,198 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CX Lighting | Egypt Systematic Lighting Solution Expert</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, sans-serif;
-        }
-        :root {
-            --primary-blue: #0056b3;
-            --white: #ffffff;
-            --dark-overlay: rgba(0, 33, 65, 0.6);
-        }
-        body {
-            color: #333;
-            line-height: 1.7;
-        }
-        /* 语言切换 */
-        .lang-switch {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            display: flex;
-            gap: 10px;
-        }
-        .lang-btn {
-            padding: 8px 15px;
-            border: 1px solid var(--primary-blue);
-            border-radius: 4px;
-            background: var(--white);
-            color: var(--primary-blue);
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        .lang-btn.active {
-            background: var(--primary-blue);
-            color: var(--white);
-        }
-        /* 首屏Hero（整屏背景） */
-        .hero {
-            width: 100%;
-            min-height: 600px;
-            background: url("https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/3b51234567890abcdef.png") center center / cover no-repeat;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-        }
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: var(--dark-overlay);
-            z-index: 1;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            padding: 0 20px;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 40px;
-            opacity: 0.95;
-        }
-        .hero-cta {
-            display: inline-block;
-            padding: 12px 35px;
-            background: var(--white);
-            color: var(--primary-blue);
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: transform 0.3s ease;
-        }
-        .hero-cta:hover {
-            transform: translateY(-3px);
-        }
-        /* 英语/阿拉伯语切换 */
-        .en-content { display: block; }
-        .ar-content { display: none; direction: rtl; }
-        body.arabic .en-content { display: none; }
-        body.arabic .ar-content { display: block; }
-        /* 其他页面样式 */
-        .section {
-            padding: 70px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: #212529;
-        }
-        .section p {
-            font-size: 1.1rem;
-            color: #6c757d;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .bg-light {
-            background-color: #f8f9fa;
-        }
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .lang-switch {
-                top: 10px;
-                right: 10px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CX Lighting - Egypt</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* 背景图（你那张带Logo的图）*/
+.hero {
+  width: 100%;
+  height: 600px;
+  background: url("https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/3b51234567890abcdef.png") center center / cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+.hero .content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  max-width: 800px;
+  margin: 0 auto 30px;
+}
+
+/* 语言切换 */
+.lang {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+.lang button {
+  padding: 8px 16px;
+  margin-left: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: white;
+  color: #0056b3;
+  font-weight: bold;
+}
+.lang button.active {
+  background: #0056b3;
+  color: white;
+}
+
+/* 英语/阿拉伯语切换显示 */
+.en { display: block; }
+.ar { display: none; }
+body.arabic .en { display: none; }
+body.arabic .ar { display: block; direction: rtl; }
+
+/* 简单页面样式 */
+.section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.section p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333;
+}
+</style>
 </head>
+
 <body>
-    <!-- 语言切换按钮 -->
-    <div class="lang-switch">
-        <button class="lang-btn active" id="en-btn">English</button>
-        <button class="lang-btn" id="ar-btn">العربية</button>
-    </div>
 
-    <!-- 首屏Hero（你的背景图） -->
-    <section class="hero">
-        <div class="hero-content">
-            <!-- 英语内容 -->
-            <div class="en-content">
-                <h1>Egypt Systematic Lighting Solution Expert</h1>
-                <p>Anhui Chenxin Lighting Electrical Appliance Co., Ltd. | 20 Years of Professional Lighting Manufacturing | Global Export to 60+ Countries</p>
-                <a href="#contact" class="hero-cta">Start Your Project With Us</a>
-            </div>
-            <!-- 阿拉伯语内容 -->
-            <div class="ar-content">
-                <h1>خبير الحلول الإضاءة المنهجية في مصر</h1>
-                <p>شركة أن'hui تشينسين للكهرباء والإضاءة المحدودة | 20 سنة من تصنيع الإضاءة المهنية | تصدير عالمي إلى أكثر من 60 دولة</p>
-                <a href="#contact" class="hero-cta">ابدأ مشروعك معنا</a>
-            </div>
-        </div>
-    </section>
+<!-- 语言按钮 -->
+<div class="lang">
+  <button id="btn-en" class="active">English</button>
+  <button id="btn-ar">العربية</button>
+</div>
 
-    <!-- 关于我们 -->
-    <section class="section">
-        <h2 class="en-content">About CX Lighting</h2>
-        <p class="en-content">A professional lighting manufacturer dedicated to providing high-quality products and services to global clients.</p>
-        <h2 class="ar-content">عن شركة CX Lighting</h2>
-        <p class="ar-content">شركة تصنيع إضاءة احترافية مكرسة لتقديم منتجات وخدمات عالية الجودة لعملائنا العالميين.</p>
-    </section>
+<!-- 顶部大图背景（你那张图） -->
+<section class="hero">
+  <div class="content">
+    <h1 class="en">Professional Lighting Solutions for Egypt</h1>
+    <h1 class="ar">حلول إضاءة احترافية لمصر</h1>
+    <p class="en">Anhui Chenxin Lighting - Reliable Partner for Street Light, Flood Light, Industrial Lighting</p>
+    <p class="ar">شركة أنحيوي تشين شين للإضاءة - شريكك الموثوق لأضواء الشوارع والفيضانات والإضاءة الصناعية</p>
+  </div>
+</section>
 
-    <!-- 产品 -->
-    <section class="section bg-light">
-        <h2 class="en-content">Our Products</h2>
-        <p class="en-content">LED Street Light • LED Flood Light • Industrial Light • Solar Light • High Bay Light</p>
-        <h2 class="ar-content">منتجاتنا</h2>
-        <p class="ar-content">إضاءة شوارع LED • إضاءة فيضان LED • إضاءة صناعية • إضاءة شمسية • إضاءة عالية</p>
-    </section>
+<!-- 关于我们 -->
+<section class="section">
+  <h2 class="en">About Us</h2>
+  <h2 class="ar">معلومات عنا</h2>
+  <p class="en">We have 20+ years of manufacturing experience, exporting to 60+ countries. We provide high-quality LED lighting solutions for Egypt market.</p>
+  <p class="ar">نحن نمتلك أكثر من 20 عامًا من الخبرة في التصنيع، ونصدر إلى أكثر من 60 دولة. نقدم حلول إضاءة LED عالية الجودة لسوق مصر.</p>
+</section>
 
-    <!-- 联系我们 -->
-    <section id="contact" class="section">
-        <h2 class="en-content">Contact Us</h2>
-        <p class="en-content">Email: egypt@cx-lighting.com | WhatsApp: +20 100 123 4567</p>
-        <h2 class="ar-content">اتصل بنا</h2>
-        <p class="ar-content">البريد الإلكتروني: egypt@cx-lighting.com | واتساب: +20 100 123 4567</p>
-    </section>
+<!-- 产品 -->
+<section class="section" style="background:#f5f5f5">
+  <h2 class="en">Our Products</h2>
+  <h2 class="ar">منتجاتنا</h2>
+  <p class="en">LED Street Light • LED Flood Light • Industrial Light • Solar Light • High Bay Light</p>
+  <p class="ar">إضاءة شوارع LED • إضاءة فيضان LED • إضاءة صناعية • إضاءة شمسية • إضاءة عالية</p>
+</section>
 
-    <script>
-        const enBtn = document.getElementById('en-btn');
-        const arBtn = document.getElementById('ar-btn');
-        const body = document.body;
+<!-- 联系我们 -->
+<section class="section">
+  <h2 class="en">Contact Us</h2>
+  <h2 class="ar">اتصل بنا</h2>
+  <p class="en">Email: your-email@cx-lighting.com | WhatsApp: +20 xxxxxxxxxx</p>
+  <p class="ar">البريد الإلكتروني: your-email@cx-lighting.com | واتساب: +20 xxxxxxxxxx</p>
+</section>
 
-        enBtn.addEventListener('click', () => {
-            body.classList.remove('arabic');
-            enBtn.classList.add('active');
-            arBtn.classList.remove('active');
-        });
+<script>
+const btnEn = document.getElementById('btn-en');
+const btnAr = document.getElementById('btn-ar');
+const body = document.body;
 
-        arBtn.addEventListener('click', () => {
-            body.classList.add('arabic');
-            arBtn.classList.add('active');
-            enBtn.classList.remove('active');
-        });
-    </script>
+btnEn.addEventListener('click', () => {
+  body.classList.remove('arabic');
+  btnEn.classList.add('active');
+  btnAr.classList.remove('active');
+});
+
+btnAr.addEventListener('click', () => {
+  body.classList.add('arabic');
+  btnAr.classList.add('active');
+  btnEn.classList.remove('active');
+});
+</script>
+
 </body>
 </html>
