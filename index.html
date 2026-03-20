@@ -172,19 +172,30 @@
             max-width: 800px;
         }
 
-        /* 解决按钮颜色和“选中感”问题 */
+        /* 基础按钮样式：白边、白字 */
         .btn { 
             padding: 12px 32px; 
-            border: 2px solid #ffffff; 
-            background: transparent !important; /* 取消背景色，解决“选中感” */
-            color: #ffffff !important;         /* 按钮文字强制变白 */
+            border: 2px solid #ffffff !important; 
+            background: transparent; 
+            color: #ffffff !important;           /* 文字保持白色 */
             text-decoration: none; 
             transition: all 0.3s; 
             display: inline-block;
-            outline: none !important;          /* 彻底移除点击后的蓝框 */
+            outline: none !important; 
         }
 
+        /* 统一方框颜色：把原本蓝色的背景也换成白色 */
         .btn.primary { 
+            background: #ffffff !important;    /* 蓝色方框变成白色方框 */
+            color: #ffffff !important;         /* 文字保持白色 */
+            border: 2px solid #ffffff !important;
+        }
+
+        /* 悬停效果 */
+        .btn:hover { 
+            background: rgba(255, 255, 255, 0.2) !important; 
+            color: #ffffff !important;
+        }
             background: rgba(255, 255, 255, 0.1) !important; /* 主按钮淡淡的底色 */
         }
 
