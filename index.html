@@ -172,22 +172,33 @@
             max-width: 800px;
         }
 
-       /* 统一两个按钮：白底 + 黑字 */
+      /* 统一两个按钮：平时都是透明底、白边、白字 */
         .btn { 
             padding: 12px 32px; 
-            border: 2px solid #ffffff !important; 
-            background: #ffffff !important;    /* 背景统一为白色 */
-            color: #000000 !important;         /* 文字统一为黑色，这样才看得见！ */
+            border: 2px solid #ffffff !important; /* 白色方框 */
+            background: transparent !important;    /* 平时是透明的 */
+            color: #ffffff !important;           /* 字体是白色的 */
             text-decoration: none; 
             font-size: 16px; 
-            font-weight: 700;                  /* 文字加粗一点 */
+            font-weight: 600;
             transition: all 0.3s; 
             display: inline-block;
             outline: none !important; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* 增加阴影，让白色方框更立体 */
         }
 
-        /* 确保两个按钮没有任何区别 */
+        /* 强制覆盖 primary 样式，去掉蓝色，换成和上面一样的透明白框 */
+        .btn.primary { 
+            background: transparent !important; 
+            color: #ffffff !important; 
+            border: 2px solid #ffffff !important;
+        }
+
+        /* 悬停效果：鼠标放上去时，变成半透明白色，方便用户知道选了哪个 */
+        .btn:hover { 
+            background: rgba(255, 255, 255, 0.2) !important; /* 淡淡的白色半透明 */
+            color: #ffffff !important; 
+            transform: translateY(-2px);
+        }
         .btn.primary { 
             background: #ffffff !important; 
             color: #000000 !important; 
