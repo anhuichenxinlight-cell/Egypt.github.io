@@ -19,31 +19,54 @@
         body.ar .product-grid, body.ar .contact-info { direction: ltr; } /* 产品/联系方式保持LTR更易读 */
         
         /* 导航栏-欧普极简款 + 语言切换按钮 */
-       .navbar {
+      /* 导航栏：背景随便拉伸，不影响 Logo */
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5%; 
+            padding: 10px 5%;
             border-bottom: 2px solid #000;
             position: sticky;
             top: 0;
             z-index: 99;
-            background-color: #fff;
-            /* --- 核心修改：保持比例不变形 --- */
-            background-image: url('Logo.png.png');
-            background-size: contain;     /* 关键：按原图比例缩放，绝不变形 */
-            background-repeat: no-repeat; /* 不重复 */
-            background-position: left center; /* 图片靠左显示 */
+            /* 设置 Bg.jpg 为背景 */
+            background-image: url('Bg.jpg');
+            background-size: cover; 
+            background-repeat: no-repeat;
+            background-position: center;
         }
-      .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #000;
+
+        /* Logo 容器：通过伪元素插入 Logo.png.png */
+        .logo {
+            display: flex;
+            align-items: center;
             text-decoration: none;
             position: relative;
             z-index: 100;
-            /* --- 关键：把文字向右挪 80 像素，给左边的图片 Logo 留出空间 --- */
-            margin-left: 80px; 
+        }
+
+        /* 核心：这里单独放 Logo 图片，保证它永远不变形 */
+        .logo::before {
+            content: "";
+            display: block;
+            width: 50px;   /* Logo 的宽度 */
+            height: 50px;  /* Logo 的高度 */
+            background-image: url('Logo.png.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-right: 15px; /* 图片和 CX Lighting 字之间的距离 */
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000;
+            /* 半透明底色，确保背景图再乱也能看清字 */
+            background: rgba(255, 255, 255, 0.6); 
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
             background: rgba(255, 255, 255, 0.4); 
             padding: 2px 10px;
             border-radius: 4px;
