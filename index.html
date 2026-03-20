@@ -139,39 +139,58 @@
             justify-content: center;
         }
 
-      /* 142行开始：实现左右顶格 + 顶部留出缝隙 */
+     /* 142行开始：背景顶格 + 顶部留白 + 按钮白色 */
         .hero { 
-            width: 100% !important;      /* 强制宽度撑满屏幕 */
-            max-width: none !important;    /* 去掉之前的 1400px 限制 */
+            width: 100% !important;      /* 左右顶格的关键 */
+            max-width: none !important;    /* 彻底去掉 1400px 的限制 */
+            margin: 20px 0 0 0 !important; /* 顶部留出 20px 缝隙，不贴导航栏 */
             
-            /* 顶部留出 20px 缝隙，不贴着上面的导航栏 */
-            margin-top: 20px !important; 
-            margin-bottom: 0;
-            margin-left: 0;
-            margin-right: 0;
-
             padding: 100px 10%;           /* 内部文字间距 */
-            
-            /* 背景图设置 */
             background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Factory.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            
             min-height: 550px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            box-sizing: border-box;       /* 保证增加宽度后不会产生横向滚动条 */
+            box-sizing: border-box;       /* 防止撑开滚动条 */
         }
 
-        /* 标题样式 */
         .hero h1 { 
             font-size: 48px; 
-            font-weight: 900; 
-            margin-bottom: 16px; 
+            font-weight: 900;
             color: #ffffff !important; 
             text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+            margin-bottom: 16px;
+        }
+
+        .hero p { 
+            font-size: 18px; 
+            color: #eeeeee !important; 
+            margin-bottom: 32px; 
+            max-width: 800px;
+        }
+
+        /* 解决按钮颜色和“选中感”问题 */
+        .btn { 
+            padding: 12px 32px; 
+            border: 2px solid #ffffff; 
+            background: transparent !important; /* 取消背景色，解决“选中感” */
+            color: #ffffff !important;         /* 按钮文字强制变白 */
+            text-decoration: none; 
+            transition: all 0.3s; 
+            display: inline-block;
+            outline: none !important;          /* 彻底移除点击后的蓝框 */
+        }
+
+        .btn.primary { 
+            background: rgba(255, 255, 255, 0.1) !important; /* 主按钮淡淡的底色 */
+        }
+
+        .btn:hover { 
+            background: #ffffff !important; 
+            color: #000000 !important;        /* 只有鼠标指上去才变黑 */
         }
 
         /* 描述文字样式 */
