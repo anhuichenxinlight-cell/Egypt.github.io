@@ -172,19 +172,33 @@
             max-width: 800px;
         }
 
-        /* 基础按钮样式：白边、白字 */
+       /* 统一两个按钮：白底 + 黑字 */
         .btn { 
             padding: 12px 32px; 
             border: 2px solid #ffffff !important; 
-            background: transparent; 
-            color: #ffffff !important;           /* 文字保持白色 */
+            background: #ffffff !important;    /* 背景统一为白色 */
+            color: #000000 !important;         /* 文字统一为黑色，这样才看得见！ */
             text-decoration: none; 
+            font-size: 16px; 
+            font-weight: 700;                  /* 文字加粗一点 */
             transition: all 0.3s; 
             display: inline-block;
             outline: none !important; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* 增加阴影，让白色方框更立体 */
         }
 
-        /* 统一方框颜色：把原本蓝色的背景也换成白色 */
+        /* 确保两个按钮没有任何区别 */
+        .btn.primary { 
+            background: #ffffff !important; 
+            color: #000000 !important; 
+        }
+
+        /* 鼠标指上去时的微调：稍微变深一点 */
+        .btn:hover { 
+            background: #f0f0f0 !important; 
+            color: #000000 !important; 
+            transform: translateY(-2px);
+        }
         .btn.primary { 
             background: #ffffff !important;    /* 蓝色方框变成白色方框 */
             color: #ffffff !important;         /* 文字保持白色 */
