@@ -20,31 +20,34 @@
         
         /* 导航栏-欧普极简款 + 语言切换按钮 */
        .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 35px 5%; /* 调大上下间距，把导航栏撑高，Logo就不扁了 */
-    border-bottom: 2px solid #000;
-    position: sticky;
-    top: 0;
-    z-index: 99;
-    background-color: #fff;
-    /* --- 核心修改：内容全保留，不裁剪 --- */
-    background-image: url('Logo.png.png');
-    background-size: 100% 100%; /* 强制显示完整画面内容 */
-    background-repeat: no-repeat;
-    background-position: center;
-}
-        .logo {
-    font-size: 24px;
-    font-weight: 700;
-    color: #000;
-    text-decoration: none;
-    position: relative; /* 必须：给背景图提供定位基准 */
-    display: inline-block;
-    padding: 5px 15px;
-    z-index: 1;
-}
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%; 
+            border-bottom: 2px solid #000;
+            position: sticky;
+            top: 0;
+            z-index: 99;
+            background-color: #fff;
+            /* --- 核心修改：保持比例不变形 --- */
+            background-image: url('Logo.png.png');
+            background-size: contain;     /* 关键：按原图比例缩放，绝不变形 */
+            background-repeat: no-repeat; /* 不重复 */
+            background-position: left center; /* 图片靠左显示 */
+        }
+       .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000;
+            text-decoration: none;
+            position: relative;
+            z-index: 100;
+            /* --- 关键：把文字向右挪 80 像素，给左边的图片 Logo 留出空间 --- */
+            margin-left: 80px; 
+            background: rgba(255, 255, 255, 0.4); /* 淡淡的白底，增加辨识度 */
+            padding: 2px 10px;
+            border-radius: 4px;
+        }
 
 
         .nav-container { display: flex; align-items: center; gap: 30px; }
