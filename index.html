@@ -20,21 +20,21 @@
         
         /* 导航栏-欧普极简款 + 语言切换按钮 */
        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-            border-bottom: 2px solid #000;
-            position: sticky;
-            top: 0;
-            z-index: 99;
-            /* 核心修改：让背景清晰、一张图铺满、不重复 */
-            background-image: url('Logo.png.png');
-            background-size: cover;       /* 图片撑满整个导航栏长条 */
-            background-repeat: no-repeat; /* 只显示一张，不平铺 */
-            background-position: center;  /* 居中对齐 */
-            background-color: #fff;       /* 底色白色 */
-        }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 5%; /* 调大上下间距，把导航栏撑高，Logo就不扁了 */
+    border-bottom: 2px solid #000;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background-color: #fff;
+    /* --- 核心修改：内容全保留，不裁剪 --- */
+    background-image: url('Logo.png.png');
+    background-size: 100% 100%; /* 强制显示完整画面内容 */
+    background-repeat: no-repeat;
+    background-position: center;
+}
         .logo {
     font-size: 24px;
     font-weight: 700;
