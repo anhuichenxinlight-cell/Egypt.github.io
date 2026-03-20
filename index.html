@@ -177,11 +177,11 @@
             display: inline-block !important;
             min-width: 200px !important;      /* 强制两个按钮宽度一样 */
             text-align: center !important;
-            padding: 12px 0 !important;       /* 统一上下高度 */
+            padding: 12px 0 !important;       /* 统一高度 */
             
-            background: transparent !important; /* 强制平时透明，解决“左边是白色”的问题 */
-            color: #ffffff !important;         /* 强制文字平时是白色 */
-            border: 2px solid #ffffff !important; /* 强制白色边框 */
+            background: transparent !important; /* 彻底解决左边按钮变白的问题 */
+            color: #ffffff !important;         /* 文字平时是白色 */
+            border: 2px solid #ffffff !important; /* 白色边框 */
             
             font-size: 16px !important; 
             font-weight: 600 !important;
@@ -191,30 +191,19 @@
             margin: 10px 5px !important;
         }
 
-        /* 2. 彻底清除 .primary 类可能自带的任何背景色 */
+        /* 2. 彻底清除 primary 类多余的背景色 */
         .btn.primary { 
             background: transparent !important; 
             color: #ffffff !important;
             border: 2px solid #ffffff !important;
         }
 
-        /* 3. 统一悬停效果：只有鼠标放上去，才会变成淡淡的半透明白 */
+        /* 3. 统一悬停效果：鼠标放上去时，变成淡淡的半透明白 */
         .btn:hover, .btn.primary:hover { 
             background: rgba(255, 255, 255, 0.2) !important; 
             color: #ffffff !important; 
             transform: translateY(-2px) !important;
         }
-            transform: translateY(-2px);
-        }
-        .btn.primary { 
-            background: #ffffff !important; 
-            color: #000000 !important; 
-        }
-
-        /* 鼠标指上去时的微调：稍微变深一点 */
-        .btn:hover { 
-            background: #f0f0f0 !important; 
-            color: #000000 !important; 
             transform: translateY(-2px);
         }
         .btn.primary { 
