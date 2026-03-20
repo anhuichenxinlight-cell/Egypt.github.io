@@ -19,40 +19,56 @@
         body.ar .product-grid, body.ar .contact-info { direction: ltr; } /* 产品/联系方式保持LTR更易读 */
         
         /* 导航栏-欧普极简款 + 语言切换按钮 */
-     /* 1. 导航栏：背景完整显示，取消置顶锁定 */
+    /* 1. 导航栏：背景 100% 显示，随页面滚动 */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%; 
+            padding: 10px 2%; /* 减小左右内边距，让 Logo 更靠左 */
             border-bottom: 2px solid #000;
-            /* 修改：改为 relative，滑动页面时导航栏会随之滚走，不再遮挡 */
-            position: relative; 
+            position: relative; /* 改为 relative，滑动时它会正常滚上去 */
             z-index: 99;
             background-color: #fff;
-            /* 背景图设置：Bg.jpg 铺满且不裁剪 */
+            /* 背景图设置 */
             background-image: url('Bg.jpg');
             background-size: 100% 100%; 
             background-repeat: no-repeat;
             background-position: center;
         }
 
-        /* 2. Logo 容器：通过伪元素插入 Logo.png.png，确保不变形 */
+        /* 2. Logo 容器：顶格左侧 + 放大 */
         .logo {
             display: flex;
             align-items: center;
-            text-decoration: none !important; /* 强制取消链接下划线 */
+            text-decoration: none !important;
             position: relative;
             z-index: 100;
+            margin-left: -10px; /* 负边距让 Logo 彻底顶到最左边 */
         }
 
-        /* 独立 Logo 图片设置 */
+        /* 独立 Logo 图片设置：放大效果 */
         .logo::before {
             content: "";
             display: block;
-            width: 60px;   /* Logo 宽度 */
-            height: 60px;  /* Logo 高度 */
+            width: 85px;   /* 宽度放大到 85px */
+            height: 85px;  /* 高度放大到 85px */
             background-image: url('Logo.png.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-right: 10px;
+        }
+
+        /* 3. 字体：强制黑色 + 极粗体 */
+        .logo-text {
+            font-size: 28px;      /* 字号加大 */
+            font-weight: 900;      /* 极粗 */
+            color: #000000 !important; /* 锁定纯黑 */
+            background: rgba(255, 255, 255, 0.4); /* 淡淡的底色确保背景复杂也能看清 */
+            padding: 4px 10px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
