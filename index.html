@@ -23,18 +23,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
-            border-bottom: 1px solid #eee;
+            padding: 15px 5%;
+            border-bottom: 2px solid #000;
             position: sticky;
             top: 0;
             z-index: 99;
-            /* --- 核心修改：让图片贯穿整个导航栏背景 --- */
+            /* 核心修改：让背景清晰、一张图铺满、不重复 */
             background-image: url('Logo.png.png');
-            background-size: contain;     /* 图片高度自动适应导航栏 */
-            background-repeat: repeat-x;  /* 横向重复排列，实现贯穿感 */
+            background-size: cover;       /* 图片撑满整个导航栏长条 */
+            background-repeat: no-repeat; /* 只显示一张，不平铺 */
             background-position: center;  /* 居中对齐 */
-            background-color: rgba(255, 255, 255, 0.9); /* 白色半透明遮罩，确保文字清晰 */
-            background-blend-mode: overlay;
+            background-color: #fff;       /* 底色白色 */
         }
         .logo {
     font-size: 24px;
