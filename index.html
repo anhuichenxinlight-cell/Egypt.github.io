@@ -172,45 +172,38 @@
             max-width: 800px;
         }
 
-     /* 统一所有按钮：平时透明、白边、白字 */
+    /* 1. 强制所有按钮：平时透明、白边、白字 */
         .btn { 
-            padding: 12px 32px; 
-            border: 2px solid #ffffff !important; 
-            background: transparent !important;   /* 关键：平时必须是透明的 */
-            color: #ffffff !important;           /* 关键：文字平时是白色的 */
-            text-decoration: none; 
-            font-size: 16px; 
-            font-weight: 600;
-            transition: all 0.3s ease; 
-            display: inline-block;
-            outline: none !important;
-            box-shadow: none !important;         /* 去掉可能存在的阴影 */
+            display: inline-block !important;
+            min-width: 200px !important;      /* 强制两个按钮宽度一样 */
+            text-align: center !important;
+            padding: 12px 0 !important;       /* 统一上下高度 */
+            
+            background: transparent !important; /* 强制平时透明，解决“左边是白色”的问题 */
+            color: #ffffff !important;         /* 强制文字平时是白色 */
+            border: 2px solid #ffffff !important; /* 强制白色边框 */
+            
+            font-size: 16px !important; 
+            font-weight: 600 !important;
+            text-decoration: none !important; 
+            transition: all 0.3s ease !important; 
+            box-sizing: border-box !important;
+            margin: 10px 5px !important;
         }
 
-        /* 彻底取消 primary 的特殊背景，让它回归透明 */
+        /* 2. 彻底清除 .primary 类可能自带的任何背景色 */
         .btn.primary { 
             background: transparent !important; 
-            color: #ffffff !important; 
-        }
-
-        /* 统一悬停效果：鼠标放上去时，才变成半透明白色 */
-        .btn:hover { 
-            background: rgba(255, 255, 255, 0.2) !important; 
-            color: #ffffff !important; 
-            transform: translateY(-2px);
-        }
-
-        /* 强制覆盖 primary 样式，去掉蓝色，换成和上面一样的透明白框 */
-        .btn.primary { 
-            background: transparent !important; 
-            color: #ffffff !important; 
+            color: #ffffff !important;
             border: 2px solid #ffffff !important;
         }
 
-        /* 悬停效果：鼠标放上去时，变成半透明白色，方便用户知道选了哪个 */
-        .btn:hover { 
-            background: rgba(255, 255, 255, 0.2) !important; /* 淡淡的白色半透明 */
+        /* 3. 统一悬停效果：只有鼠标放上去，才会变成淡淡的半透明白 */
+        .btn:hover, .btn.primary:hover { 
+            background: rgba(255, 255, 255, 0.2) !important; 
             color: #ffffff !important; 
+            transform: translateY(-2px) !important;
+        }
             transform: translateY(-2px);
         }
         .btn.primary { 
