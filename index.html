@@ -19,40 +19,55 @@
         body.ar .product-grid, body.ar .contact-info { direction: ltr; } /* 产品/联系方式保持LTR更易读 */
         
         /* 导航栏-欧普极简款 + 语言切换按钮 */
-      /* 导航栏：背景随便拉伸，不影响 Logo */
+     /* 1. 导航栏：背景完整显示，取消置顶锁定 */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 5%;
+            padding: 20px 5%; 
             border-bottom: 2px solid #000;
-            position: sticky;
-            top: 0;
+            /* 修改：改为 relative，滑动页面时导航栏会随之滚走，不再遮挡 */
+            position: relative; 
             z-index: 99;
-            /* 设置 Bg.jpg 为背景 */
+            background-color: #fff;
+            /* 背景图设置：Bg.jpg 铺满且不裁剪 */
             background-image: url('Bg.jpg');
-            background-size: cover; 
+            background-size: 100% 100%; 
             background-repeat: no-repeat;
             background-position: center;
         }
 
-        /* Logo 容器：通过伪元素插入 Logo.png.png */
+        /* 2. Logo 容器：通过伪元素插入 Logo.png.png，确保不变形 */
         .logo {
             display: flex;
             align-items: center;
-            text-decoration: none;
+            text-decoration: none !important; /* 强制取消链接下划线 */
             position: relative;
             z-index: 100;
         }
 
-        /* 核心：这里单独放 Logo 图片，保证它永远不变形 */
+        /* 独立 Logo 图片设置 */
         .logo::before {
             content: "";
             display: block;
-            width: 50px;   /* Logo 的宽度 */
-            height: 50px;  /* Logo 的高度 */
+            width: 60px;   /* Logo 宽度 */
+            height: 60px;  /* Logo 高度 */
             background-image: url('Logo.png.png');
             background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-right: 12px;
+        }
+
+        /* 3. 字体设置：解决变蓝问题 */
+        .logo-text {
+            font-size: 26px;
+            font-weight: 800;
+            color: #000 !important; /* 强制黑色，防止点击后变蓝 */
+            background: rgba(255, 255, 255, 0.6); /* 半透明白底增加清晰度 */
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
             background-repeat: no-repeat;
             background-position: center;
             margin-right: 15px; /* 图片和 CX Lighting 字之间的距离 */
