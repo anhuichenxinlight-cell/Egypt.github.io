@@ -172,18 +172,32 @@
             max-width: 800px;
         }
 
-      /* 统一两个按钮：平时都是透明底、白边、白字 */
+     /* 统一所有按钮：平时透明、白边、白字 */
         .btn { 
             padding: 12px 32px; 
-            border: 2px solid #ffffff !important; /* 白色方框 */
-            background: transparent !important;    /* 平时是透明的 */
-            color: #ffffff !important;           /* 字体是白色的 */
+            border: 2px solid #ffffff !important; 
+            background: transparent !important;   /* 关键：平时必须是透明的 */
+            color: #ffffff !important;           /* 关键：文字平时是白色的 */
             text-decoration: none; 
             font-size: 16px; 
             font-weight: 600;
-            transition: all 0.3s; 
+            transition: all 0.3s ease; 
             display: inline-block;
-            outline: none !important; 
+            outline: none !important;
+            box-shadow: none !important;         /* 去掉可能存在的阴影 */
+        }
+
+        /* 彻底取消 primary 的特殊背景，让它回归透明 */
+        .btn.primary { 
+            background: transparent !important; 
+            color: #ffffff !important; 
+        }
+
+        /* 统一悬停效果：鼠标放上去时，才变成半透明白色 */
+        .btn:hover { 
+            background: rgba(255, 255, 255, 0.2) !important; 
+            color: #ffffff !important; 
+            transform: translateY(-2px);
         }
 
         /* 强制覆盖 primary 样式，去掉蓝色，换成和上面一样的透明白框 */
