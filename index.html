@@ -19,7 +19,23 @@
         body.ar .product-grid, body.ar .contact-info { direction: ltr; } /* 产品/联系方式保持LTR更易读 */
         
         /* 导航栏-欧普极简款 + 语言切换按钮 */
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; border-bottom: 1px solid #eee; position: sticky; top: 0; background: #fff; z-index: 99; }
+       .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 99;
+            /* --- 核心修改：让图片贯穿整个导航栏背景 --- */
+            background-image: url('Logo.png.png');
+            background-size: contain;     /* 图片高度自动适应导航栏 */
+            background-repeat: repeat-x;  /* 横向重复排列，实现贯穿感 */
+            background-position: center;  /* 居中对齐 */
+            background-color: rgba(255, 255, 255, 0.9); /* 白色半透明遮罩，确保文字清晰 */
+            background-blend-mode: overlay;
+        }
         .logo {
     font-size: 24px;
     font-weight: 700;
@@ -31,23 +47,7 @@
     z-index: 1;
 }
 
-/* 核心：把图片放在文字后面 */
-.logo::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 200px; /* 控制背景图宽度，实现贯穿感 */
-    height: 100%;
-    background-image: url('Logo.png.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.25; /* 透明度：0.25 既能看清图片又不会挡住文字 */
-    z-index: -1; /* 确保图片在文字下方 */
-    pointer-events: none;
-}
+
         .nav-container { display: flex; align-items: center; gap: 30px; }
         .nav-links { display: flex; gap: 30px; flex-wrap: wrap; }
         .nav-links a { color: #333; text-decoration: none; font-size: 14px; transition: color 0.3s; }
