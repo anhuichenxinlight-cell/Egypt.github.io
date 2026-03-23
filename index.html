@@ -248,7 +248,17 @@
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .product-card { background: #fff; padding: 20px; border: 1px solid #eee; transition: transform 0.3s; }
         .product-card:hover { transform: translateY(-5px); }
-        .product-img { width: 100%; height: 200px; object-fit: cover; margin-bottom: 16px; background: #f1f1f1; border-radius: 2px; }
+       .product-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;   /* 关键：对应 800x600 的比例 */
+    height: auto;          /* 关键：让方框高度自动包裹图片，不留空隙 */
+    margin-bottom: 16px;
+    background: transparent; /* 关键：去掉灰色背景，彻底消除灰边 */
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
         .product-name { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
         .product-desc { font-size: 13px; color: #666; }
         
