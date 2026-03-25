@@ -440,6 +440,50 @@
     <section class="contact">
         <h2 class="section-title" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h2>
         <div class="contact-info">
+            <style>
+    /* 正常语言（中/英）：图片在右边空白处 */
+    .qr-container {
+        position: absolute;
+        right: 20px; /* 靠右对齐 */
+        top: 75px;
+        display: flex;
+        gap: 25px;
+        z-index: 999;
+    }
+    /* 阿拉伯语 (RTL)：图片自动交换到左边空白处 */
+    [dir="rtl"] .qr-container {
+        right: auto;
+        left: 20px; /* 靠左对齐 */
+    }
+    .qr-box {
+        text-align: center;
+    }
+    .qr-img-wrapper {
+        background: #fff;
+        padding: 10px;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    }
+</style>
+
+<div style="position: relative; width: 0; height: 0; float: right; z-index: 999;">
+    <div class="qr-container">
+        <div class="qr-box">
+            <div class="qr-img-wrapper">
+                <img src="WhatsApp-QR.png" alt="WhatsApp" style="width: 135px; height: 135px; display: block; object-fit: contain;">
+            </div>
+            <p style="margin-top: 10px; color: #333; font-size: 14px; font-weight: bold;">WhatsApp</p>
+        </div>
+
+        <div class="qr-box">
+            <div class="qr-img-wrapper">
+                <img src="WeChat-QR.png" alt="WeChat" style="width: 135px; height: 135px; display: block; object-fit: contain;">
+            </div>
+            <p style="margin-top: 10px; color: #333; font-size: 14px; font-weight: bold;">WeChat</p>
+        </div>
+    </div>
+</div>
             <div class="contact-item">
                 <h4 data-en="Official Website" data-ar="الموقع الرسمي">Official Website</h4>
                 <a href="https://www.ahcxlight.com" target="_blank">https://www.ahcxlight.com</a>
