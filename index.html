@@ -420,6 +420,50 @@
 
     <!-- 转化区-极简表单+埃及适配 -->
     <section class="cta" id="cta">
+        <style>
+    /* 默认状态（中/英）：利用 right 定位在右侧空白 */
+    .qr-float-layer {
+        position: absolute;
+        right: 30px; 
+        top: 75px;
+        display: flex;
+        gap: 20px;
+        z-index: 999;
+    }
+    /* 阿拉伯语环境自动镜像：利用 left 定位在左侧空白 */
+    [dir="rtl"] .qr-float-layer {
+        right: auto;
+        left: 30px;
+    }
+    .qr-item {
+        text-align: center;
+    }
+    .qr-img-card {
+        background: #fff;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+</style>
+
+<div style="position: relative; width: 0; height: 0; float: right;">
+    <div class="qr-float-layer">
+        <div class="qr-item">
+            <div class="qr-img-card">
+                <img src="WhatsApp-QR.png" alt="WhatsApp" style="width: 135px; height: 135px; display: block; object-fit: contain;">
+            </div>
+            <p style="margin-top: 8px; color: #333; font-size: 14px; font-weight: bold;">WhatsApp</p>
+        </div>
+
+        <div class="qr-item">
+            <div class="qr-img-card">
+                <img src="WeChat-QR.png" alt="WeChat" style="width: 135px; height: 135px; display: block; object-fit: contain;">
+            </div>
+            <p style="margin-top: 8px; color: #333; font-size: 14px; font-weight: bold;">WeChat</p>
+        </div>
+    </div>
+</div>
         <h2 class="section-title" data-en="Get a Free Quote for Egypt" data-ar="احصل على عرض سعر مجاني لمصر">Get a Free Quote for Egypt</h2>
         <p class="cta-desc" data-en="Fill out the form below, our sales team will contact you within 24 hours via WhatsApp/Email." data-ar="املأ النموذج أدناه، وسيتصل بك فريق المبيعات لدينا في غضون 24 ساعة عبر WhatsApp/بريد إلكتروني.">Fill out the form below, our sales team will contact you within 24 hours via WhatsApp/Email.</p>
         <form class="cta-form">
