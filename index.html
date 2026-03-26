@@ -297,6 +297,27 @@
             .products, .strength, .cta { padding: 60px 5%; }
             .nav-links { gap: 15px; }
         }
+        /* --- 299行插入：解决阿拉伯语所有对齐问题 --- */
+        body.ar .section-title, 
+        body.ar .cta-desc,
+        body.ar .cta-form {
+            text-align: right !important;
+        }
+
+        body.ar .form-group input {
+            text-align: right !important;
+            direction: rtl !important;
+            unicode-bidi: plaintext !important; /* 关键：防止标点符号乱跳 */
+            box-sizing: border-box;
+        }
+
+        /* 专门修复截图里那个灰色提示词（Placeholder）不靠右的问题 */
+        body.ar input::placeholder {
+            text-align: right !important;
+        }
+        /* 兼容不同浏览器的提示词对齐 */
+        body.ar input::-webkit-input-placeholder { text-align: right !important; }
+        body.ar input::-moz-placeholder { text-align: right !important; }
     </style>
 </head>
 <body>
