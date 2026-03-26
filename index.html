@@ -297,26 +297,6 @@
             .products, .strength, .cta { padding: 60px 5%; }
             .nav-links { gap: 15px; }
         }
-        /* --- 专门修复阿拉伯语文字对齐补丁 --- */
-        body.ar .cta-form {
-            text-align: right !important;
-        }
-
-        body.ar .form-group input {
-            text-align: right !important;
-            direction: rtl !important;
-            unicode-bidi: plaintext !important;
-        }
-
-        /* 让截图里那个灰色的提示词靠右 */
-        body.ar input::placeholder {
-            text-align: right !important;
-        }
-
-        /* 让阿语下的标题也靠右 */
-        body.ar .section-title {
-            text-align: right !important;
-        }
     </style>
 </head>
 <body>
@@ -457,43 +437,27 @@
                     <p style="margin-top: 5px; color: #333; font-size: 13px; font-weight: bold;">WeChat</p>
                 </div>
 
-           <form class="cta-form" dir="auto" style="max-width: 500px; margin: 0; display: flex; flex-direction: column; gap: 15px;">
-            
-            <div class="form-group" style="width: 100%;">
-                <input type="text" 
-                       placeholder="Your Full Name *" 
-                       data-placeholder-en="Your Full Name *" 
-                       data-placeholder-ar="الاسم الكامل *" 
-                       required 
-                       style="width: 100%; height: 48px; padding: 0 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; box-sizing: border-box; text-align: start; display: block;">
             </div>
-
-            <div class="form-group" style="width: 100%;">
-                <input type="tel" 
-                       placeholder="Your WhatsApp Number *" 
-                       data-placeholder-en="Your WhatsApp Number *" 
-                       data-placeholder-ar="رقم WhatsApp *" 
-                       required 
-                       style="width: 100%; height: 48px; padding: 0 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; box-sizing: border-box; text-align: start; display: block;">
+        </div>
+        <h2 class="section-title" data-en="Get a Free Quote for Egypt" data-ar="احصل على عرض سعر مجاني لمصر">Get a Free Quote for Egypt</h2>
+        <p class="cta-desc" data-en="Fill out the form below, our sales team will contact you within 24 hours via WhatsApp/Email." data-ar="املأ النموذج أدناه، وسيتصل بك فريق المبيعات لدينا في غضون 24 ساعة عبر WhatsApp/بريد إلكتروني.">Fill out the form below, our sales team will contact you within 24 hours via WhatsApp/Email.</p>
+        <form class="cta-form">
+            <div class="form-group">
+                <input type="text" placeholder="Your Full Name *" data-placeholder-en="Your Full Name *" data-placeholder-ar="الاسم الكامل *" required>
             </div>
-
-            <div class="form-group" style="width: 100%;">
-                <input type="text" 
-                       placeholder="Product Interest (e.g. LED Flood Light)" 
-                       data-placeholder-en="Product Interest (e.g. LED Flood Light)" 
-                       data-placeholder-ar="المنتج المطلوب (مثل LED Flood Light)" 
-                       required 
-                       style="width: 100%; height: 48px; padding: 0 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; box-sizing: border-box; text-align: start; display: block;">
+            <div class="form-group">
+                <input type="tel" placeholder="Your WhatsApp Number *" data-placeholder-en="Your WhatsApp Number *" data-placeholder-ar="رقم WhatsApp *" required>
             </div>
-
-            <button type="submit" class="btn primary" 
-                    data-en="Submit Request" 
-                    data-ar="إرسال الطلب" 
-                    style="width: 100%; height: 50px; background: #000; color: #fff; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; margin: 0 !important;">
-                Submit Request
-            </button>
+            <div class="form-group">
+                <input type="text" placeholder="Product Interest (e.g. LED Flood Light)" data-placeholder-en="Product Interest (e.g. LED Flood Light)" data-placeholder-ar="المنتج المطلوب (مثل LED Flood Light)" required>
+            </div>
+            <button type="submit" class="btn primary" data-en="Submit Request" data-ar="إرسال الطلب">Submit Request</button>
         </form>
     </section>
+
+    <!-- 联系方式-完整信息+可点击链接 -->
+    <section class="contact">
+        <h2 class="section-title" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h2>
         <div class="contact-info">
             <div class="contact-item">
                 <h4 data-en="Official Website" data-ar="الموقع الرسمي">Official Website</h4>
