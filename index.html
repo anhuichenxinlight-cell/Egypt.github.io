@@ -297,6 +297,26 @@
             .products, .strength, .cta { padding: 60px 5%; }
             .nav-links { gap: 15px; }
         }
+        /* --- 专门修复阿拉伯语文字对齐补丁 --- */
+        body.ar .cta-form {
+            text-align: right !important;
+        }
+
+        body.ar .form-group input {
+            text-align: right !important;
+            direction: rtl !important;
+            unicode-bidi: plaintext !important;
+        }
+
+        /* 让截图里那个灰色的提示词靠右 */
+        body.ar input::placeholder {
+            text-align: right !important;
+        }
+
+        /* 让阿语下的标题也靠右 */
+        body.ar .section-title {
+            text-align: right !important;
+        }
     </style>
 </head>
 <body>
