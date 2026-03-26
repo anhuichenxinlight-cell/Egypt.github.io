@@ -56,71 +56,63 @@
         }
 
         /* 3. 核心：你要的黑色、粗体、大号文字 */
-        .logo-text {
-            font-size: 34px !important;    /* 足够大 */
-            font-weight: 900 !important;   /* 足够粗 */
-            color: #000000 !important;     /* 锁定纯黑色 */
-            background: rgba(255, 255, 255, 0.4); 
-            padding: 2px 10px;
-            border-radius: 4px;
-            display: inline-block;
+        /* --- 1. Logo 样式 (唯一保留版) --- */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none !important;
+            margin-left: -10px;
         }
-            color: #000000 !important; /* 锁定纯黑 */
-            background: rgba(255, 255, 255, 0.4); /* 淡淡的底色确保背景复杂也能看清 */
-            padding: 4px 10px;
-            border-radius: 4px;
-            letter-spacing: 1px;
-        }
+
+        .logo::before {
+            content: "";
+            display: block;
+            width: 85px; 
+            height: 85px;
+            background-image: url('Logo.png.png'); /* 确保文件名正确 */
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
             margin-right: 12px;
         }
 
-        /* 3. 字体设置：解决变蓝问题 */
         .logo-text {
-            font-size: 26px;
-            font-weight: 800;
-            color: #000 !important; /* 强制黑色，防止点击后变蓝 */
-            background: rgba(255, 255, 255, 0.6); /* 半透明白底增加清晰度 */
-            padding: 4px 12px;
-            border-radius: 4px;
-        }
-            background-repeat: no-repeat;
-            background-position: center;
-            margin-right: 15px; /* 图片和 CX Lighting 字之间的距离 */
-        }
-
-        .logo-text {
-            font-size: 24px;
-            font-weight: 700;
-            color: #000;
-            /* 半透明底色，确保背景图再乱也能看清字 */
-            background: rgba(255, 255, 255, 0.6); 
-            padding: 4px 12px;
-            border-radius: 4px;
-        }
+            font-size: 32px !important;    
+            font-weight: 900 !important;   
+            color: #000000 !important;     
             background: rgba(255, 255, 255, 0.4); 
-            padding: 2px 10px;
+            padding: 4px 12px;
             border-radius: 4px;
-        }
-            background: rgba(255, 255, 255, 0.4); /* 淡淡的白底，增加辨识度 */
-            padding: 2px 10px;
-            border-radius: 4px;
+            display: inline-block;
+            letter-spacing: 1px;
         }
 
-
+        /* --- 2. 导航与语言切换按钮 --- */
         .nav-container { display: flex; align-items: center; gap: 30px; }
         .nav-links { display: flex; gap: 30px; flex-wrap: wrap; }
-        .nav-links a { color: #333; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+        .nav-links a { color: #333; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: #0066cc; }
-        /* 语言切换按钮 */
+
         .lang-switch { display: flex; gap: 10px; }
-        .lang-btn { padding: 6px 12px; border: 1px solid #ddd; background: #fff; color: #333; cursor: pointer; border-radius: 2px; transition: all 0.3s; }
-        .lang-btn.active { background: #000; color: #fff; border-color: #000; }
-        
-        /* 首屏-核心卖点+品牌背书 */
-        /* 首屏-替换为工厂背景 */
+        .lang-btn { padding: 6px 14px; border: 1px solid #000; background: #fff; color: #000; cursor: pointer; border-radius: 4px; font-weight: bold; transition: all 0.3s; }
+        .lang-btn.active { background: #000; color: #fff; }
+
+        /* --- 3. 二维码及 Logo 手机端适配 --- */
+        @media (max-width: 768px) {
+            .qr-section-wrapper {
+                position: static !important;
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: center;
+            }
+            .qr-section-wrapper > div {
+                position: static !important;
+                display: flex;
+                gap: 15px;
+            }
+            .logo-text { font-size: 24px !important; }
+            .logo::before { width: 60px; height: 60px; }
+        }
         .hero { 
             padding: 120px 5%; 
             text-align: left; 
