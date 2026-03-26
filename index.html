@@ -8,18 +8,18 @@
     <meta name="geo.region" content="EG" />
     <meta name="geo.placename" content="Egypt" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>LED Lighting Manufacturer & Supplier in Egypt | CX Lighting</title>
+    <title>LED Lighting Manufacturer & Supplier in Egypt | CX Lighting</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
-        /* 核心：双语切换适配 RTL */
+        
+        /* --- 核心：双语切换适配 --- */
         body { background: #ffffff; color: #000000; line-height: 1.6; transition: all 0.3s; }
         body.ar { direction: rtl; font-family: 'Arial', 'Tahoma', sans-serif; }
         body.ar .nav-links { justify-content: flex-start; gap: 30px; }
         body.ar .hero, body.ar .products, body.ar .strength, body.ar .cta, body.ar .contact { text-align: right; }
-        body.ar .product-grid, body.ar .contact-info { direction: ltr; } /* 产品/联系方式保持LTR更易读 */
-        
-        /* 导航栏-欧普极简款 + 语言切换按钮 */
-    /* 1. 导航栏基础：背景 + 随页面滚动 */
+        body.ar .product-grid, body.ar .contact-info { direction: ltr; } 
+
+        /* --- 导航栏基础 --- */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -29,94 +29,68 @@
             position: relative; 
             z-index: 99;
             background-image: url('Bg.jpg');
-            background-size: 100% 100%; 
+            background-size: cover; 
             background-repeat: no-repeat;
             background-position: center;
         }
 
-        /* 2. Logo 容器：顶格左侧 */
+        /* --- Logo 容器 --- */
         .logo {
             display: flex;
             align-items: center;
             text-decoration: none !important;
-            margin-left: -15px; 
+            margin-left: -5px; 
         }
 
-        /* 独立图片 Logo：放大尺寸 */
+        /* --- Logo 图片：放大至 95px --- */
         .logo::before {
             content: "";
             display: block;
-            width: 95px;   /* 已放大 */
+            width: 95px;
             height: 95px;
             background-image: url('Logo.png.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            margin-right: 10px;
+            margin-right: 15px;
         }
 
-        /* 3. 核心：你要的黑色、粗体、大号文字 */
+        /* --- Logo 文字：黑色、粗体、34px --- */
         .logo-text {
-            font-size: 34px !important;    /* 足够大 */
-            font-weight: 900 !important;   /* 足够粗 */
-            color: #000000 !important;     /* 锁定纯黑色 */
-            background: rgba(255, 255, 255, 0.4); 
-            padding: 2px 10px;
+            font-size: 34px !important;
+            font-weight: 900 !important;
+            color: #000000 !important;
+            background: rgba(255, 255, 255, 0.5); 
+            padding: 4px 12px;
             border-radius: 4px;
             display: inline-block;
-        }
-            color: #000000 !important; /* 锁定纯黑 */
-            background: rgba(255, 255, 255, 0.4); /* 淡淡的底色确保背景复杂也能看清 */
-            padding: 4px 10px;
-            border-radius: 4px;
             letter-spacing: 1px;
-        }
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            margin-right: 12px;
+            text-decoration: none !important;
         }
 
-        /* 3. 字体设置：解决变蓝问题 */
-        .logo-text {
-            font-size: 26px;
-            font-weight: 800;
-            color: #000 !important; /* 强制黑色，防止点击后变蓝 */
-            background: rgba(255, 255, 255, 0.6); /* 半透明白底增加清晰度 */
-            padding: 4px 12px;
-            border-radius: 4px;
-        }
-            background-repeat: no-repeat;
-            background-position: center;
-            margin-right: 15px; /* 图片和 CX Lighting 字之间的距离 */
-        }
-
-        .logo-text {
-            font-size: 24px;
-            font-weight: 700;
-            color: #000;
-            /* 半透明底色，确保背景图再乱也能看清字 */
-            background: rgba(255, 255, 255, 0.6); 
-            padding: 4px 12px;
-            border-radius: 4px;
-        }
-            background: rgba(255, 255, 255, 0.4); 
-            padding: 2px 10px;
-            border-radius: 4px;
-        }
-            background: rgba(255, 255, 255, 0.4); /* 淡淡的白底，增加辨识度 */
-            padding: 2px 10px;
-            border-radius: 4px;
-        }
-
-
+        /* --- 导航容器与链接 --- */
         .nav-container { display: flex; align-items: center; gap: 30px; }
         .nav-links { display: flex; gap: 30px; flex-wrap: wrap; }
-        .nav-links a { color: #333; text-decoration: none; font-size: 14px; transition: color 0.3s; }
+        .nav-links a { 
+            color: #333; 
+            text-decoration: none; 
+            font-size: 14px; 
+            font-weight: 600;
+            transition: color 0.3s; 
+        }
         .nav-links a:hover { color: #0066cc; }
-        /* 语言切换按钮 */
+
+        /* --- 语言按钮 --- */
         .lang-switch { display: flex; gap: 10px; }
-        .lang-btn { padding: 6px 12px; border: 1px solid #ddd; background: #fff; color: #333; cursor: pointer; border-radius: 2px; transition: all 0.3s; }
+        .lang-btn { 
+            padding: 6px 12px; 
+            border: 1px solid #ddd; 
+            background: #fff; 
+            color: #333; 
+            cursor: pointer; 
+            border-radius: 2px; 
+            transition: all 0.3s; 
+        }
         .lang-btn.active { background: #000; color: #fff; border-color: #000; }
         
         /* 首屏-核心卖点+品牌背书 */
