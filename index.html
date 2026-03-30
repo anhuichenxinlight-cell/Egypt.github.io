@@ -113,7 +113,7 @@
             .logo-text { font-size: 24px !important; }
             .logo::before { width: 60px; height: 60px; }
         }
-   /* --- 116行开始：Hero 区域全屏显示与图片完整性优化 --- */
+   /* --- 116行开始：Hero 区域全屏显示与高级文字阴影（去掉黑框） --- */
         .hero { 
             width: 100% !important;      
             max-width: none !important;    
@@ -135,41 +135,45 @@
             animation: heroSlideMotion 15s infinite ease-in-out;
         }
 
-        /* 字体、黑框、渐变遮罩等其余元素统统不动 */
+        /* 文字包装容器：去掉黑框背景，改为复合阴影 */
         .hero h1, .hero p {
             position: relative;
             z-index: 5;
             width: fit-content;
             transition: all 0.5s ease;
+            /* 重点：彻底去掉 background 属性 */
+            background: transparent !important; 
+            border-radius: 0;
+            padding: 0; /* 去掉之前的内边距 */
         }
 
         .hero h1 { 
             font-size: 48px; 
             font-weight: 900;
             margin-bottom: 16px;
-            padding: 5px 15px; 
-            animation: textStyleSync 15s infinite ease-in-out;
+            color: #ffffff !important;
+            animation: textColorSync 15s infinite ease-in-out;
         }
 
         .hero p { 
             font-size: 18px; 
             margin-bottom: 32px; 
             max-width: 850px;
-            padding: 5px 15px;
-            animation: textStyleSync 15s infinite ease-in-out;
+            color: #ffffff !important;
+            line-height: 1.6;
+            animation: textColorSync 15s infinite ease-in-out;
         }
 
-        /* 核心修改：仅针对 Factory2 的显示比例进行优化，保留渐变遮罩 */
+        /* 核心：背景切换与渐变遮罩 */
         @keyframes heroSlideMotion {
             0%, 45% {
-                /* Factory 1：保持 cover 铺满 */
                 background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Factory.png');
                 background-size: cover;
             }
             50%, 95% {
-                /* Factory 2：增加从右往左的渐变遮罩（左深右浅），确保白字清晰 */
-                /* 同时使用 100% 100% 确保图片上下不被裁剪 */
-                background-image: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%), url('Factory2.jpg');
+                /* 维持 Factory2 从右往左的渐变遮罩（左深右浅） */
+                background-image: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%), url('Factory2.jpg');
+                /* 维持 Factory2 的拉伸全屏模式 */
                 background-size: 100% 100%; 
             }
             100% {
@@ -178,31 +182,55 @@
             }
         }
 
-        /* 其余效果（黑框、按钮变色）严格保持不动 */
-        @keyframes textStyleSync {
+        /* 核心：复合阴影技术，在 Factory2 时自动增强 */
+        @keyframes textColorSync {
             0%, 45% {
-                color: #ffffff !important;
-                background: transparent;
-                text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+                /* Factory 1：常规深阴影 */
+                text-shadow: 0 4px 10px rgba(0,0,0,0.5);
             }
             50%, 95% {
-                color: #ffffff !important; 
-                background: rgba(0, 0, 0, 0.7); 
-                border-radius: 4px;
-                text-shadow: none;
+                /* Factory 2：复合阴影（一层模糊扩散 + 一层描边式清晰阴影） */
+                /* 就像给字体打上了高光和清晰的轮廓，在白背景下极其清晰 */
+                text-shadow: 0 4px 15px rgba(0,0,0,0.5), 0 0 25px rgba(0,0,0,0.3);
             }
             100% {
-                color: #ffffff !important;
-                background: transparent;
+                text-shadow: 0 4px 10px rgba(0,0,0,0.5);
             }
         }
 
+        /* 按钮动画：统统保持不动 */
         .btn {
             animation: btnStyleSync 15s infinite ease-in-out;
             display: inline-block !important;
             min-width: 200px !important;
             text-align: center !important;
             padding: 12px 0 !important;
+            font-size: 16px !important; 
+            font-weight: 600 !important;
+            text-decoration: none !important; 
+            transition: all 0.3s ease !important; 
+            margin: 10px 5px !important;
+            z-index: 5;
+            position: relative;
+        }
+
+        @keyframes btnStyleSync {
+            0%, 45% { 
+                border: 2px solid #ffffff !important;
+                color: #ffffff !important;
+                background: transparent !important;
+            }
+            50%, 95% { 
+                border: 2px solid #000000 !important;
+                color: #ffffff !important; 
+                background: #000000 !important;
+            }
+            100% { 
+                border: 2px solid #ffffff !important;
+                color: #ffffff !important;
+                background: transparent !important;
+            }
+        }
             font-size: 16px !important; 
             font-weight: 600 !important;
             text-decoration: none !important; 
