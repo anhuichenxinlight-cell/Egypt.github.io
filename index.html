@@ -113,7 +113,7 @@
             .logo-text { font-size: 24px !important; }
             .logo::before { width: 60px; height: 60px; }
         }
-       /* --- 116行开始：首屏 Hero 区域样式与轮播动画 --- */
+      /* --- 116行开始：Hero 区域样式与轮播动画 --- */
         .hero { 
             width: 100% !important;      
             max-width: none !important;    
@@ -131,23 +131,21 @@
             background-repeat: no-repeat;
             position: relative;
 
-            /* 核心：启用背景轮播动画 */
+            /* 启用轮播动画：12秒循环 */
             animation: heroSlider 12s infinite ease-in-out;
         }
 
         @keyframes heroSlider {
             0%, 45% {
-                /* 第一张图 */
                 background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Factory.png');
             }
             50%, 95% {
-                /* 第二张图 - 自动识别你上传的 jpg 格式 */
                 background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Factory2.jpg');
             }
             100% {
-                /* 回到第一张图 */
                 background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Factory.png');
             }
+        }
         }
         }
 
