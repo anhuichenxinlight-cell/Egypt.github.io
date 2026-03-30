@@ -113,7 +113,7 @@
             .logo-text { font-size: 24px !important; }
             .logo::before { width: 60px; height: 60px; }
         }
-   /* --- 116行开始：首屏 Hero 样式与联动动画 --- */
+   /* --- 116行开始：Hero 联动滑动与视觉增强 --- */
         .hero { 
             width: 100% !important;      
             max-width: none !important;    
@@ -129,66 +129,78 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-
-            /* 启用背景切换动画 */
+            
+            /* 背景切换动画 */
             animation: heroSlideMotion 15s infinite ease-in-out;
         }
 
-        /* 大标题：颜色随背景同步切换 */
+        /* 大标题：增加强力复合阴影 */
         .hero h1 { 
             font-size: 48px; 
             font-weight: 900;
             margin-bottom: 16px;
             position: relative;
-            z-index: 2;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.8); /* 强阴影保证清晰度 */
+            z-index: 5;
+            /* 复合阴影：一层模糊扩散，一层深色描边，确保在亮色下也清晰 */
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5), 0 0 20px rgba(0,0,0,0.3);
             animation: textColorSync 15s infinite ease-in-out;
         }
 
-        /* 描述文字：颜色随背景同步切换 */
+        /* 描述文字 */
         .hero p { 
             font-size: 18px; 
             margin-bottom: 32px; 
             max-width: 800px;
             position: relative;
-            z-index: 2;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            z-index: 5;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
             animation: textColorSync 15s infinite ease-in-out;
         }
 
-        /* 背景滑动关键帧 */
+        /* 按钮组：确保在亮色背景下也能看清边框 */
+        .btn-group {
+            position: relative;
+            z-index: 5;
+        }
+
+        /* 背景切换：在 Factory2 时使用特殊的渐变，既保住了图片亮度，又突出了文字 */
         @keyframes heroSlideMotion {
             0%, 45% {
-                /* 第一阶段：工厂外景 + 较深遮罩 */
-                background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Factory.png');
+                /* 第一张图：常规深色遮罩 */
+                background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Factory.png');
             }
             50%, 95% {
-                /* 第二阶段：新图片 + 极浅遮罩（让图更亮） */
-                background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), url('Factory2.jpg');
+                /* 第二张图：海尔式侧边遮罩（左侧深，右侧浅，保护图片主体） */
+                background-image: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%), url('Factory2.jpg');
             }
             100% {
-                background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Factory.png');
+                background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Factory.png');
             }
         }
 
-        /* 文字颜色同步关键帧 */
+        /* 文字与按钮边框颜色同步 */
         @keyframes textColorSync {
             0%, 45% {
-                color: #ffffff !important; /* 第一张图配白色 */
+                color: #ffffff !important;
             }
             50%, 95% {
-                /* 第二张图配亮黄色，防止看不清 */
-                color: #FFD700 !important; 
+                /* 切换为亮黄色，这是工业设计中最醒目的对比色 */
+                color: #FFD700 !important;
             }
             100% {
                 color: #ffffff !important;
             }
         }
-            text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
-            margin-bottom: 32px; 
-            max-width: 800px;
-            position: relative;
-            z-index: 2;
+
+        /* 按钮动画联动：当文字变黄时，按钮边框也变黄 */
+        .btn {
+            animation: btnBorderSync 15s infinite ease-in-out;
+        }
+
+        @keyframes btnBorderSync {
+            0%, 45% { border-color: #ffffff !important; color: #ffffff !important; }
+            50%, 95% { border-color: #FFD700 !important; color: #FFD700 !important; }
+            100% { border-color: #ffffff !important; color: #ffffff !important; }
         }
 
         /* 左右平滑滚动动画：模拟滑块切换 */
