@@ -113,7 +113,7 @@
             .logo-text { font-size: 24px !important; }
             .logo::before { width: 60px; height: 60px; }
         }
-   /* --- 116行开始：Hero 联动滑动与视觉增强 --- */
+  /* --- 116行开始：Hero 联动滑动与黑框背板设计 --- */
         .hero { 
             width: 100% !important;      
             max-width: none !important;    
@@ -134,62 +134,86 @@
             animation: heroSlideMotion 15s infinite ease-in-out;
         }
 
-        /* 大标题：增加强力复合阴影 */
+        /* 文字包装容器：用于控制整体背板感 */
+        .hero h1, .hero p {
+            position: relative;
+            z-index: 5;
+            width: fit-content; /* 框的大小随文字长度变化 */
+            transition: all 0.5s ease;
+        }
+
         .hero h1 { 
             font-size: 48px; 
             font-weight: 900;
             margin-bottom: 16px;
-            position: relative;
-            z-index: 5;
-            /* 复合阴影：一层模糊扩散，一层深色描边，确保在亮色下也清晰 */
-            text-shadow: 0 4px 10px rgba(0,0,0,0.5), 0 0 20px rgba(0,0,0,0.3);
-            animation: textColorSync 15s infinite ease-in-out;
+            padding: 5px 15px; /* 预留方框内边距 */
+            animation: textStyleSync 15s infinite ease-in-out;
         }
 
-        /* 描述文字 */
         .hero p { 
             font-size: 18px; 
             margin-bottom: 32px; 
-            max-width: 800px;
-            position: relative;
-            z-index: 5;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-            animation: textColorSync 15s infinite ease-in-out;
+            max-width: 850px;
+            padding: 5px 15px;
+            animation: textStyleSync 15s infinite ease-in-out;
         }
 
-        /* 按钮组：确保在亮色背景下也能看清边框 */
-        .btn-group {
-            position: relative;
-            z-index: 5;
-        }
-
-        /* 背景切换：在 Factory2 时使用特殊的渐变，既保住了图片亮度，又突出了文字 */
+        /* 背景切换关键帧 */
         @keyframes heroSlideMotion {
             0%, 45% {
-                /* 第一张图：常规深色遮罩 */
-                background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Factory.png');
+                background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Factory.png');
             }
             50%, 95% {
-                /* 第二张图：海尔式侧边遮罩（左侧深，右侧浅，保护图片主体） */
-                background-image: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%), url('Factory2.jpg');
+                /* 第二张图时去掉全局遮罩，因为我们要用局部黑框 */
+                background-image: url('Factory2.jpg');
             }
             100% {
-                background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Factory.png');
+                background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Factory.png');
             }
         }
 
-        /* 文字与按钮边框颜色同步 */
-        @keyframes textColorSync {
+        /* 文字样式同步关键帧：实现黑方框效果 */
+        @keyframes textStyleSync {
             0%, 45% {
                 color: #ffffff !important;
+                background: transparent; /* 第一张图背景暗，不需要方框 */
+                text-shadow: 0 2px 10px rgba(0,0,0,0.8);
             }
             50%, 95% {
-                /* 切换为亮黄色，这是工业设计中最醒目的对比色 */
-                color: #FFD700 !important;
+                color: #ffffff !important; 
+                /* 核心：添加半透明黑方框 */
+                background: rgba(0, 0, 0, 0.7); 
+                border-radius: 4px;
+                text-shadow: none;
             }
             100% {
                 color: #ffffff !important;
+                background: transparent;
             }
+        }
+
+        /* 按钮同步：在 Factory2 时变为实心黑底白字，更有辨识度 */
+        .btn {
+            animation: btnStyleSync 15s infinite ease-in-out;
+        }
+
+        @keyframes btnStyleSync {
+            0%, 45% { 
+                border-color: #ffffff !important; 
+                color: #ffffff !important;
+                background: transparent !important;
+            }
+            50%, 95% { 
+                border-color: #000000 !important; 
+                color: #ffffff !important; 
+                background: #000000 !important; /* 实心黑底 */
+            }
+            100% { 
+                border-color: #ffffff !important; 
+                color: #ffffff !important;
+                background: transparent !important;
+            }
+        }
         }
 
         /* 按钮动画联动：当文字变黄时，按钮边框也变黄 */
