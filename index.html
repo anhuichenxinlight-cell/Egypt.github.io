@@ -113,7 +113,7 @@
             .logo-text { font-size: 24px !important; }
             .logo::before { width: 60px; height: 60px; }
         }
-      /* --- 116行开始：Hero 区域样式与轮播动画 --- */
+     /* --- 116行开始：Hero 区域样式与左右滚动动画 --- */
         .hero { 
             width: 100% !important;      
             max-width: none !important;    
@@ -130,23 +130,49 @@
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
+            overflow: hidden;
 
-            /* 启用轮播动画：12秒循环 */
-            animation: heroSlider 12s infinite ease-in-out;
+            /* 重点：启用左右滑动动画 */
+            animation: heroSlideLeft 16s infinite ease-in-out;
         }
 
-        @keyframes heroSlider {
+        /* 修复字体颜色为白色并增加阴影以看清文字 */
+        .hero h1 { 
+            font-size: 48px; 
+            font-weight: 900;
+            color: #ffffff !important; 
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.6); /* 深层阴影增强对比 */
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero p { 
+            font-size: 18px; 
+            color: #ffffff !important; 
+            text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+            margin-bottom: 32px; 
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 左右平滑滚动动画：模拟滑块切换 */
+        @keyframes heroSlideLeft {
             0%, 45% {
-                background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Factory.png');
+                background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Factory.png');
+                background-position: center;
             }
+            48% { background-position: 150% center; } /* 瞬间移出的过渡感 */
             50%, 95% {
-                background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Factory2.jpg');
+                background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Factory2.jpg');
+                background-position: center;
             }
+            98% { background-position: -150% center; }
             100% {
-                background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Factory.png');
+                background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Factory.png');
+                background-position: center;
             }
-        }
-        }
         }
 
         .hero h1 { 
