@@ -8,86 +8,20 @@
     <meta name="geo.region" content="EG" />
     <meta name="geo.placename" content="Egypt" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>LED Lighting Manufacturer & Supplier in Egypt | CX Lighting</title>
+    <title>LED Lighting Manufacturer & Supplier in Egypt | CX Lighting</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
-        /* 核心：双语切换适配 RTL */
         body { background: #ffffff; color: #000000; line-height: 1.6; transition: all 0.3s; }
         body.ar { direction: rtl; font-family: 'Arial', 'Tahoma', sans-serif; }
         body.ar .nav-links { justify-content: flex-start; gap: 30px; }
         body.ar .hero, body.ar .products, body.ar .strength, body.ar .cta, body.ar .contact { text-align: right; }
-        body.ar .product-grid, body.ar .contact-info { direction: ltr; } /* 产品/联系方式保持LTR更易读 */
-        
-        /* 导航栏-欧普极简款 + 语言切换按钮 */
-    /* 1. 导航栏基础：背景 + 随页面滚动 */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 2%; 
-            border-bottom: 2px solid #000;
-            position: relative; 
-            z-index: 99;
-            background-image: url('Bg.jpg');
-            background-size: 100% 100%; 
-            background-repeat: no-repeat;
-            background-position: center;
-        }
+        body.ar .product-grid, body.ar .contact-info { direction: ltr; }
 
-        /* 2. Logo 容器：顶格左侧 */
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none !important;
-            margin-left: -15px; 
-        }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 10px 2%; border-bottom: 2px solid #000; position: relative; z-index: 99; background-image: url('Bg.jpg'); background-size: 100% 100%; background-repeat: no-repeat; background-position: center; }
+        .logo { display: flex; align-items: center; text-decoration: none !important; margin-left: -10px; }
+        .logo::before { content: ""; display: block; width: 85px; height: 85px; background-image: url('Logo.png.png'); background-size: contain; background-repeat: no-repeat; background-position: center; margin-right: 12px; }
+        .logo-text { font-size: 32px !important; font-weight: 900 !important; color: #000000 !important; background: rgba(255, 255, 255, 0.4); padding: 4px 12px; border-radius: 4px; display: inline-block; letter-spacing: 1px; }
 
-        /* 独立图片 Logo：放大尺寸 */
-        .logo::before {
-            content: "";
-            display: block;
-            width: 95px;   /* 已放大 */
-            height: 95px;
-            background-image: url('Logo.png.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            margin-right: 10px;
-        }
-
-        /* 3. 核心：你要的黑色、粗体、大号文字 */
-        /* --- 1. Logo 样式 (唯一保留版) --- */
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none !important;
-            margin-left: -10px;
-        }
-
-        .logo::before {
-            content: "";
-            display: block;
-            width: 85px; 
-            height: 85px;
-            background-image: url('Logo.png.png'); /* 确保文件名正确 */
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            margin-right: 12px;
-        }
-
-        .logo-text {
-            font-size: 32px !important;    
-            font-weight: 900 !important;   
-            color: #000000 !important;     
-            background: rgba(255, 255, 255, 0.4); 
-            padding: 4px 12px;
-            border-radius: 4px;
-            display: inline-block;
-            letter-spacing: 1px;
-        }
-
-        /* --- 2. 导航与语言切换按钮 --- */
         .nav-container { display: flex; align-items: center; gap: 30px; }
         .nav-links { display: flex; gap: 30px; flex-wrap: wrap; }
         .nav-links a { color: #333; text-decoration: none; font-size: 15px; font-weight: 600; transition: color 0.3s; }
@@ -97,248 +31,28 @@
         .lang-btn { padding: 6px 14px; border: 1px solid #000; background: #fff; color: #000; cursor: pointer; border-radius: 4px; font-weight: bold; transition: all 0.3s; }
         .lang-btn.active { background: #000; color: #fff; }
 
-        /* --- 3. 二维码及 Logo 手机端适配 --- */
         @media (max-width: 768px) {
-            .qr-section-wrapper {
-                position: static !important;
-                margin-bottom: 20px;
-                display: flex;
-                justify-content: center;
-            }
-            .qr-section-wrapper > div {
-                position: static !important;
-                display: flex;
-                gap: 15px;
-            }
+            .qr-section-wrapper { position: static !important; margin-bottom: 20px; display: flex; justify-content: center; }
+            .qr-section-wrapper > div { position: static !important; display: flex; gap: 15px; }
             .logo-text { font-size: 24px !important; }
             .logo::before { width: 60px; height: 60px; }
         }
-   /* --- 116行开始：Hero 区域全屏显示与高级文字阴影（去掉黑框） --- */
-        .hero { 
-            width: 100% !important;      
-            max-width: none !important;    
-            margin: 20px 0 0 0 !important; 
-            padding: 100px 10%;           
-            min-height: 550px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            box-sizing: border-box;
-            position: relative;
-            overflow: hidden;
-            
-            /* 背景基础：居中不重复 */
-            background-repeat: no-repeat;
-            background-position: center center;
 
-            /* 启动背景切换动画 */
-            animation: heroSlideMotion 15s infinite ease-in-out;
-        }
+        .hero { width: 100% !important; max-width: none !important; margin: 20px 0 0 0 !important; padding: 100px 10%; min-height: 550px; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; position: relative; overflow: hidden; background-repeat: no-repeat; background-position: center center; animation: heroSlideMotion 15s infinite ease-in-out; }
+        .hero h1, .hero p { position: relative; z-index: 5; width: fit-content; transition: all 0.5s ease; background: transparent !important; }
+        .hero h1 { font-size: 48px; font-weight: 900; margin-bottom: 16px; color: #ffffff !important; text-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .hero p { font-size: 18px; margin-bottom: 32px; max-width: 850px; color: #ffffff !important; line-height: 1.6; }
 
-        /* 文字包装容器：去掉黑框背景，改为复合阴影 */
-        .hero h1, .hero p {
-            position: relative;
-            z-index: 5;
-            width: fit-content;
-            transition: all 0.5s ease;
-            /* 重点：彻底去掉 background 属性 */
-            background: transparent !important; 
-            border-radius: 0;
-            padding: 0; /* 去掉之前的内边距 */
-        }
-
-        .hero h1 { 
-            font-size: 48px; 
-            font-weight: 900;
-            margin-bottom: 16px;
-            color: #ffffff !important;
-            animation: textColorSync 15s infinite ease-in-out;
-        }
-
-        .hero p { 
-            font-size: 18px; 
-            margin-bottom: 32px; 
-            max-width: 850px;
-            color: #ffffff !important;
-            line-height: 1.6;
-            animation: textColorSync 15s infinite ease-in-out;
-        }
-
-        /* 核心：背景切换与渐变遮罩 */
         @keyframes heroSlideMotion {
-            0%, 45% {
-                background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Factory.png');
-                background-size: cover;
-            }
-            50%, 95% {
-                /* 维持 Factory2 从右往左的渐变遮罩（左深右浅） */
-                background-image: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%), url('Factory2.jpg');
-                /* 维持 Factory2 的拉伸全屏模式 */
-                background-size: 100% 100%; 
-            }
-            100% {
-                background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Factory.png');
-                background-size: cover;
-            }
+            0%, 45% { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Factory.png'); background-size: cover; }
+            50%, 95% { background-image: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%), url('Factory2.jpg'); background-size: 100% 100%; }
+            100% { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Factory.png'); background-size: cover; }
         }
 
-        /* 核心：复合阴影技术，在 Factory2 时自动增强 */
-        @keyframes textColorSync {
-            0%, 45% {
-                /* Factory 1：常规深阴影 */
-                text-shadow: 0 4px 10px rgba(0,0,0,0.5);
-           
-            transition: all 0.3s ease !important; 
-            margin: 10px 5px !important;
-            z-index: 5;
-            position: relative;
-        }
+        .btn { display: inline-block !important; min-width: 200px !important; text-align: center !important; padding: 12px 0 !important; background: transparent !important; color: #ffffff !important; border: 2px solid #ffffff !important; font-size: 16px !important; font-weight: 600 !important; text-decoration: none !important; transition: all 0.3s ease !important; margin: 10px 5px !important; }
+        .btn.primary { background: #0066cc !important; border-color: #0066cc !important; }
+        .btn:hover { background: #ffffff !important; color: #000000 !important; }
 
-        @keyframes btnStyleSync {
-            0%, 45% { 
-                border: 2px solid #ffffff !important;
-                color: #ffffff !important;
-                background: transparent !important;
-            }
-            50%, 95% { 
-                border: 2px solid #000000 !important;
-                color: #ffffff !important; 
-                background: #000000 !important;
-            }
-            100% { 
-                border: 2px solid #ffffff !important;
-                color: #ffffff !important;
-                background: transparent !important;
-            }
-        }
-            font-size: 16px !important; 
-            font-weight: 600 !important;
-            text-decoration: none !important; 
-            transition: all 0.3s ease !important; 
-            margin: 10px 5px !important;
-            z-index: 5;
-            position: relative;
-        }
-
-        @keyframes btnStyleSync {
-            0%, 45% { 
-                border: 2px solid #ffffff !important;
-                color: #ffffff !important;
-                background: transparent !important;
-            }
-            50%, 95% { 
-                border: 2px solid #000000 !important;
-                color: #ffffff !important; 
-                background: #000000 !important;
-            }
-            100% { 
-                border: 2px solid #ffffff !important;
-                color: #ffffff !important;
-                background: transparent !important;
-            }
-        }
-        /* 左右平滑滚动动画：模拟滑块切换 */
-        @keyframes heroSlideLeft {
-            0%, 45% {
-                background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Factory.png');
-                background-position: center;
-            }
-            48% { background-position: 150% center; } /* 瞬间移出的过渡感 */
-            50%, 95% {
-                background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Factory2.jpg');
-                background-position: center;
-            }
-            98% { background-position: -150% center; }
-            100% {
-                background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Factory.png');
-                background-position: center;
-            }
-        }
-
-        .hero h1 { 
-            font-size: 48px; 
-            font-weight: 900;
-            color: #ffffff !important; 
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-            margin-bottom: 16px;
-        }
-
-        .hero p { 
-            font-size: 18px; 
-            color: #eeeeee !important; 
-            margin-bottom: 32px; 
-            max-width: 800px;
-        }
-
-    /* 1. 强制所有按钮：平时透明、白边、白字 */
-        .btn { 
-            display: inline-block !important;
-            min-width: 200px !important;      /* 强制两个按钮宽度一样 */
-            text-align: center !important;
-            padding: 12px 0 !important;       /* 统一高度 */
-            
-            background: transparent !important; /* 彻底解决左边按钮变白的问题 */
-            color: #ffffff !important;         /* 文字平时是白色 */
-            border: 2px solid #ffffff !important; /* 白色边框 */
-            
-            font-size: 16px !important; 
-            font-weight: 600 !important;
-            text-decoration: none !important; 
-            transition: all 0.3s ease !important; 
-            box-sizing: border-box !important;
-            margin: 10px 5px !important;
-        }
-
-        /* 2. 彻底清除 primary 类多余的背景色 */
-        .btn.primary { 
-            background: transparent !important; 
-            color: #ffffff !important;
-            border: 2px solid #ffffff !important;
-        }
-
-        /* 3. 统一悬停效果：鼠标放上去时，变成淡淡的半透明白 */
-        .btn:hover, .btn.primary:hover { 
-            background: rgba(255, 255, 255, 0.2) !important; 
-            color: #ffffff !important; 
-            transform: translateY(-2px) !important;
-        }
-            transform: translateY(-2px);
-        }
-        .btn.primary { 
-            background: #ffffff !important;    /* 蓝色方框变成白色方框 */
-            color: #ffffff !important;         /* 文字保持白色 */
-            border: 2px solid #ffffff !important;
-        }
-
-        /* 悬停效果 */
-        .btn:hover { 
-            background: rgba(255, 255, 255, 0.2) !important; 
-            color: #ffffff !important;
-        }
-            background: rgba(255, 255, 255, 0.1) !important; /* 主按钮淡淡的底色 */
-        }
-
-        .btn:hover { 
-            background: #ffffff !important; 
-            color: #000000 !important;        /* 只有鼠标指上去才变黑 */
-        }
-
-        /* 描述文字样式 */
-        .hero p { 
-            font-size: 18px; 
-            color: #eeeeee; 
-            margin-bottom: 32px; 
-            max-width: 800px;
-        }
-        /* 主按钮改成亮蓝色，吸引点击 */
-        .btn.primary { 
-            background: #0066cc; 
-            color: #fff; 
-            border-color: #0066cc; 
-        }
-        .btn:hover { background: #0066cc; color: #fff; border-color: #0066cc; }
-        
-        /* 产品板块-适配三大模块 */
         .products { padding: 80px 5%; background: #fafafa; max-width: 1400px; margin: 0 auto; }
         .section-title { font-size: 24px; font-weight: 600; margin-bottom: 40px; text-align: left; }
         .product-module { margin-bottom: 60px; }
@@ -346,84 +60,32 @@
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .product-card { background: #fff; padding: 20px; border: 1px solid #eee; transition: transform 0.3s; }
         .product-card:hover { transform: translateY(-5px); }
-       .product-img {
-    width: 100%;
-    aspect-ratio: 4 / 3;   /* 关键：对应 800x600 的比例 */
-    height: auto;          /* 关键：让方框高度自动包裹图片，不留空隙 */
-    margin-bottom: 16px;
-    background: transparent; /* 关键：去掉灰色背景，彻底消除灰边 */
-    border-radius: 8px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+        .product-img { width: 100%; aspect-ratio: 4 / 3; height: auto; margin-bottom: 16px; border-radius: 8px; background-size: cover; background-position: center; background-repeat: no-repeat; }
         .product-name { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
         .product-desc { font-size: 13px; color: #666; }
-        
-        /* 公司实力-极简展示 */
+
         .strength { padding: 80px 5%; max-width: 1400px; margin: 0 auto; }
-        .strength-desc { font-size: 16px; color: #666; max-width: 900px; margin-bottom: 40px; }
-        
-        /* 转化区-极简表单+埃及适配 */
         .cta { padding: 80px 5%; background: #fafafa; max-width: 1400px; margin: 0 auto; }
         .cta h2 { font-size: 28px; font-weight: 600; margin-bottom: 16px; }
-        .cta p { font-size: 16px; color: #666; margin-bottom: 32px; max-width: 600px; }
-        .cta-form { max-width: 400px; }
         .form-group { margin-bottom: 20px; }
         .form-group input { width: 100%; padding: 12px 16px; border: 1px solid #ddd; border-radius: 0; font-size: 14px; }
-        
-        /* 联系方式-固定信息+可点击链接 */
         .contact { padding: 60px 5%; border-top: 1px solid #eee; max-width: 1400px; margin: 0 auto; }
         .contact-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .contact-item h4 { font-size: 16px; font-weight: 600; margin-bottom: 10px; }
-        .contact-item a { color: #0066cc; text-decoration: none; transition: color 0.3s; }
-        .contact-item a:hover { color: #004999; }
-        .contact-item p { font-size: 14px; color: #666; line-height: 1.8; }
-        
-        /* 页脚-极简+官网跳转 */
+        .contact-item a { color: #0066cc; text-decoration: none; }
         .footer { padding: 40px 5%; border-top: 1px solid #eee; text-align: center; }
         .footer-links { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
         .footer-links a { color: #666; text-decoration: none; font-size: 13px; }
-        .footer-links a:hover { color: #0066cc; }
-        .copyright { font-size: 12px; color: #999; }
-        
-        /* 适配移动端 */
-        @media (max-width: 768px) {
-            .hero { padding: 80px 5%; }
-            .hero h1 { font-size: 28px; }
-            .section-title { font-size: 22px; }
-            .products, .strength, .cta { padding: 60px 5%; }
-            .nav-links { gap: 15px; }
-        }
-        /* --- 299行插入：解决阿拉伯语所有对齐问题 --- */
-        body.ar .section-title, 
-        body.ar .cta-desc,
-        body.ar .cta-form {
-            text-align: right !important;
-        }
 
-        body.ar .form-group input {
-            text-align: right !important;
-            direction: rtl !important;
-            unicode-bidi: plaintext !important; /* 关键：防止标点符号乱跳 */
-            box-sizing: border-box;
-        }
-
-        /* 专门修复截图里那个灰色提示词（Placeholder）不靠右的问题 */
-        body.ar input::placeholder {
-            text-align: right !important;
-        }
-        /* 兼容不同浏览器的提示词对齐 */
-        body.ar input::-webkit-input-placeholder { text-align: right !important; }
-        body.ar input::-moz-placeholder { text-align: right !important; }
+        body.ar .section-title, body.ar .cta, body.ar .cta-form { text-align: right !important; }
+        body.ar .form-group input { text-align: right !important; direction: rtl !important; }
+        body.ar input::placeholder { text-align: right !important; }
     </style>
 </head>
 <body>
-    <!-- 导航栏-品牌+官网跳转+语言切换 -->
     <nav class="navbar">
         <a href="index.html" class="logo">
-    <span class="logo-text" data-en="CX Lighting" data-ar="سي إكس للإضاءة">CX Lighting</span>
-</a>
+            <span class="logo-text" data-en="CX Lighting" data-ar="سي إكس للإضاءة">CX Lighting</span>
+        </a>
         <div class="nav-container">
             <div class="nav-links">
                 <a href="#products" data-en="Products" data-ar="المنتجات">Products</a>
@@ -431,7 +93,6 @@
                 <a href="#cta" data-en="Get Quote" data-ar="احصل على عرض سعر">Get Quote</a>
                 <a href="https://www.ahcxlight.com" target="_blank" data-en="Official Website" data-ar="الموقع الرسمي">Official Website</a>
             </div>
-            <!-- 语言切换按钮 -->
             <div class="lang-switch">
                 <button class="lang-btn active" id="en-btn">English</button>
                 <button class="lang-btn" id="ar-btn">العربية</button>
@@ -439,7 +100,6 @@
         </div>
     </nav>
 
-    <!-- 首屏-品牌核心+埃及卖点 -->
     <section class="hero">
         <h1 data-en="CX Lighting - 20 Years of LED Lighting Expertise for Egypt" data-ar="CX الإضاءة - 20 عامًا من الخبرة في إضاءة LED لمصر">CX Lighting - 20 Years of LED Lighting Expertise for Egypt</h1>
         <p data-en="Systematic Lighting Solution | AC 85-265V Wide Voltage | IP65 Waterproof | CE&RoHS Certified | Export to 60+ Countries" data-ar="حل إضاءة منهجي | جهد واسع 85-265 فولت | مضاد للماء IP65 | معتمد CE&RoHS | تصدير إلى أكثر من 60 دولة">Systematic Lighting Solution | AC 85-265V Wide Voltage | IP65 Waterproof | CE&RoHS Certified | Export to 60+ Countries</p>
@@ -449,221 +109,139 @@
         </div>
     </section>
 
-    <!-- 产品板块-精准匹配三大照片模块 -->
     <section class="products" id="products">
         <h2 class="section-title" data-en="Our LED Lighting Solutions" data-ar="حلول إضاءة LED لدينا">Our LED Lighting Solutions</h2>
         
-        <!-- 模块一：核心LED灯具品类 -->
         <div class="product-module">
             <h3 data-en="LED Lights Categories" data-ar="فئات إضاءة LED">LED Lights Categories</h3>
             <div class="product-grid">
                 <div class="product-card">
-                   <div class="product-module">
-    <h3 data-en="LED Lights Categories" data-ar="فئات إضاءة LED">LED Lights Categories</h3>
-    <div class="product-grid">
-        
-        <div class="product-card">
-            <div class="product-img" role="img" aria-label="LED Flood and Street Lights wholesale supplier Cairo Egypt" style="background-image: url('Flood&street Light.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
-            <h3 class="product-name" data-en="LED Flood & Street Lights" data-ar="أضواء الفلود والشارع LED">LED Flood & Street Lights</h3>
-            <p class="product-desc" data-en="IP65 Waterproof | 50W-300W | 2 Years Warranty" data-ar="مضاد للماء IP65 | 50-300 واط | ضمان 2 سنوات">IP65 Waterproof | 50W-300W | 2 Years Warranty</p>
+                    <div class="product-img" role="img" aria-label="LED Flood and Street Lights supplier Cairo Egypt" style="background-image: url('Flood&street Light.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+                    <h3 class="product-name" data-en="LED Flood & Street Lights" data-ar="أضواء الفلود والشارع LED">LED Flood & Street Lights</h3>
+                    <p class="product-desc" data-en="IP65 Waterproof | 50W-300W | 2 Years Warranty" data-ar="مضاد للماء IP65 | 50-300 واط | ضمان 2 سنوات">IP65 Waterproof | 50W-300W | 2 Years Warranty</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" role="img" aria-label="Professional LED Bulbs and Tubes factory Alexandria Egypt" style="background-image: url('Bulb&Tube.jpg.png'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+                    <h3 class="product-name" data-en="LED Bulbs & Tubes" data-ar="مصابيح وأنابيب LED">LED Bulbs & Tubes</h3>
+                    <p class="product-desc" data-en="A/T Bulbs | T8 Glass/PC Tubes | AC 85-265V" data-ar="مصابيح A/T | أنابيب T8 زجاج/بلاستيك | 85-265 فولت">A/T Bulbs | T8 Glass/PC Tubes | AC 85-265V</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" role="img" aria-label="Solar and Customized LED Lights supplier Giza Egypt" style="background-image: url('customized&Sola.jpg.png'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+                    <h3 class="product-name" data-en="Solar & Customized Lights" data-ar="أضواء شمسية ومخصصة">Solar & Customized Lights</h3>
+                    <p class="product-desc" data-en="Eco-friendly Solar Light | OEM/ODM Supported" data-ar="ضوء شمسي صديق للبيئة | يدعم OEM/ODM">Eco-friendly Solar Light | OEM/ODM Supported</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" role="img" aria-label="LED Strip and Special Lights wholesale Egypt" style="background-image: url('Strip&special Light.jpg.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+                    <h3 class="product-name" data-en="LED Strip & Special Lights" data-ar="شرائط LED وأضواء خاصة">LED Strip & Special Lights</h3>
+                    <p class="product-desc" data-en="G4/G9 Series | Car Wash Lights | Wi-Fi Control" data-ar="سلسلة G4/G9 | أضواء غسيل السيارات | تحكم واي فاي">G4/G9 Series | Car Wash Lights | Wi-Fi Control</p>
+                </div>
+            </div>
         </div>
 
-        <div class="product-card">
-            <div class="product-img" role="img" aria-label="Professional LED Bulbs and Tubes factory Alexandria Egypt" style="background-image: url('Bulb&Tube.jpg.png'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
-            <h3 class="product-name" data-en="LED Bulbs & Tubes" data-ar="مصابيح وأنابيب LED">LED Bulbs & Tubes</h3>
-            <p class="product-desc" data-en="A/T Bulbs | T8 Glass/PC Tubes | AC 85-265V" data-ar="مصابيح A/T | أنابيب T8 زجاج/بلاستيك | 85-265 فولت">A/T Bulbs | T8 Glass/PC Tubes | AC 85-265V</p>
-        </div>
-
-        <div class="product-card">
-            <div class="product-img" role="img" aria-label="Solar and Customized LED Lights supplier Giza Egypt" style="background-image: url('customized&Sola.jpg.png'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
-            <h3 class="product-name" data-en="Solar & Customized Lights" data-ar="أضواء شمسية ومخصصة">Solar & Customized Lights</h3>
-            <p class="product-desc" data-en="Eco-friendly Solar Light | OEM/ODM Supported" data-ar="ضوء شمسي صديق للبيئة | يدعم OEM/ODM">Eco-friendly Solar Light | OEM/ODM Supported</p>
-        </div>
-
-        <div class="product-card">
-            <div class="product-img" role="img" aria-label="LED Strip and Special Lights wholesale Egypt" style="background-image: url('Strip&special Light.jpg.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
-            <h3 class="product-name" data-en="LED Strip & Special Lights" data-ar="شرائط LED وأضواء خاصة">LED Strip & Special Lights</h3>
-            <p class="product-desc" data-en="G4/G9 Series | Car Wash Lights | Wi-Fi Control" data-ar="سلسلة G4/G9 | أضواء غسيل السيارات | تحكم واي فاي">G4/G9 Series | Car Wash Lights | Wi-Fi Control</p>
-        </div>
-
-    </div>
-</div>
-
-        <!-- 模块二：LED生产线&整体解决方案 -->
         <div class="product-module">
             <h3 data-en="LED Production Line & Solutions" data-ar="خط إنتاج LED وحلولها">LED Production Line & Solutions</h3>
             <div class="product-grid">
                 <div class="product-card">
-                    <div class="product-img" style="background-image: url('Bulb Poduction Line.jpg'); background-size: cover; background-position: center;"></div>
-                   <h3 class="product-name" data-en="Bulb Production Lines" data-ar="خطوط إنتاج المصابيح">Bulb Production Lines</h3>
-                   <p class="product-desc" data-en="A/T/Candle Bulb | Auto Assembly & Aging" data-ar="مصابيح A/T/شموع | تجميع وتعتيق آلي">A/T/Candle Bulb | Auto Assembly & Aging</p>
+                    <div class="product-img" role="img" aria-label="LED Bulb automated production line supplier" style="background-image: url('Bulb Poduction Line.jpg'); background-size: cover; background-position: center;"></div>
+                    <h3 class="product-name" data-en="Bulb Production Lines" data-ar="خطوط إنتاج المصابيح">Bulb Production Lines</h3>
+                    <p class="product-desc" data-en="A/T/Candle Bulb | Auto Assembly & Aging" data-ar="مصابيح A/T/شموع | تجميع وتعتيق آلي">A/T/Candle Bulb | Auto Assembly & Aging</p>
                 </div>
-               <div class="product-card">
-            <div class="product-img" style="background-image: url('component Line.jpg'); background-size: cover; background-position: center;"></div>
-            <h3 class="product-name" data-en="Component Production Lines" data-ar="خطوط إنتاج المكونات">Component Production Lines</h3>
-            <p class="product-desc" data-en="Inductor | PCB Punch | IC Sealing & Packing" data-ar="محثات | ثقب لوحات PCB | تغليف رقائق IC">Inductor | PCB Punch | IC Sealing & Packing</p>
-        </div>
-               <div class="product-card">
-            <div class="product-img" style="background-image: url('Extrusion Lines.png'); background-size: cover; background-position: center;"></div>
-            <h3 class="product-name" data-en="Extrusion & Auto Lines" data-ar="خطوط البثق والأوتوماتيك">Extrusion & Auto Lines</h3>
-            <p class="product-desc" data-en="Extrusion Lines | Auto-loading & Packing" data-ar="خطوط البثق | التحميل والتعبئة الآلية">Extrusion Lines | Auto-loading & Packing</p>
-        </div>
+                <div class="product-card">
+                    <div class="product-img" role="img" aria-label="Lighting Component Production Lines" style="background-image: url('component Line.jpg'); background-size: cover; background-position: center;"></div>
+                    <h3 class="product-name" data-en="Component Production Lines" data-ar="خطوط إنتاج المكونات">Component Production Lines</h3>
+                    <p class="product-desc" data-en="Inductor | PCB Punch | IC Sealing & Packing" data-ar="محثات | ثقب لوحات PCB | تغليف رقائق IC">Inductor | PCB Punch | IC Sealing & Packing</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" role="img" aria-label="LED Extrusion and Auto loading Lines" style="background-image: url('Extrusion Lines.png'); background-size: cover; background-position: center;"></div>
+                    <h3 class="product-name" data-en="Extrusion & Auto Lines" data-ar="خطوط البثق والأوتوماتيك">Extrusion & Auto Lines</h3>
+                    <p class="product-desc" data-en="Extrusion Lines | Auto-loading & Packing" data-ar="خطوط البثق | التحميل والتعبئة الآلية">Extrusion Lines | Auto-loading & Packing</p>
+                </div>
             </div>
         </div>
 
-        <!-- 模块三：LED组件SKD Parts -->
         <div class="product-module">
             <h3 data-en="LED SKD Components" data-ar="مكونات LED SKD">LED SKD Components</h3>
-         <div class="product-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 30px; justify-content: start; margin: 20px 0; max-width: 1000px;">
-            <div class="product-card" style="margin: 0; min-height: 450px;">
-                <div class="product-img" style="background-image: url('PCB&Panel.jpg'); background-size: cover; background-position: center; height: 320px;"></div>
-                <h3 class="product-name" data-en="PCB & LED Panels" data-ar="لوحات PCB و LED">PCB & LED Panels</h3>
-                <p class="product-desc" data-en="High-quality PCB | Panel Light Covers" data-ar="PCB عالية الجودة | أغطية أضواء اللوحة">High-quality PCB | Panel Light Covers</p>
-            </div>
-            
-            <div class="product-card" style="margin: 0; min-height: 450px;">
-                <div class="product-img" style="background-image: url('Cover.png'); background-size: cover; background-position: center; height: 320px;"></div>
-               <h3 class="product-name" data-en="LED Bulb Covers" data-ar="أغطية مصابيح LED">LED Bulb Covers</h3>
-                <p class="product-desc" data-en="A/T Bulb Covers | Custom Sizes Available" data-ar="أغطية مصابيح A/T | أحجام مخصصة متاحة">A/T Bulb Covers | Custom Sizes Available</p>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-img" role="img" aria-label="LED PCB and Panel Components wholesale Cairo" style="background-image: url('PCB&Panel.jpg'); background-size: cover; background-position: center;"></div>
+                    <h3 class="product-name" data-en="PCB & LED Panels" data-ar="لوحات PCB و LED">PCB & LED Panels</h3>
+                    <p class="product-desc" data-en="High-quality PCB | Panel Light Covers" data-ar="PCB عالية الجودة | أغطية أضواء اللوحة">High-quality PCB | Panel Light Covers</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" role="img" aria-label="LED Bulb Covers and SKD parts Egypt" style="background-image: url('Cover.png'); background-size: cover; background-position: center;"></div>
+                    <h3 class="product-name" data-en="LED Bulb Covers" data-ar="أغطية مصابيح LED">LED Bulb Covers</h3>
+                    <p class="product-desc" data-en="A/T Bulb Covers | Custom Sizes Available" data-ar="أغطية مصابيح A/T | أحجام مخصصة متاحة">A/T Bulb Covers | Custom Sizes Available</p>
+                </div>
             </div>
         </div>
-        </div>
-          <a href="https://ahcxlight.en.made-in-china.com/" class="view-all-btn" style="display: inline-block; background-color: transparent; color: #000000; padding: 10px 25px; text-decoration: none; border: 2px solid #000000; border-radius: 4px; font-weight: bold; margin-top: 25px; transition: all 0.3s ease;" target="_blank">
-            View All Products on MIC →
-        </a>
+        <a href="https://ahcxlight.en.made-in-china.com/" class="btn" style="border-color: #000; color: #000;" target="_blank">View All Products on MIC →</a>
     </section>
 
-    <!-- 公司实力-极简背书 -->
     <section class="strength" id="strength">
         <h2 class="section-title" data-en="Why Choose CX Lighting" data-ar="لماذا تختار CX الإضاءة">Why Choose CX Lighting</h2>
-       <div class="about-description" style="line-height: 1.8; color: #333; text-align: justify;">
-    <p id="company-intro" 
-   data-en="Anhui Chenxin Lighting Electrical Appliance Co., Ltd, headquartered in Hefei, China, we commit to providing systematic lighting solution for overseas lighting factories by exporting production machines, technologies, experience and materials. We are not only a professional large-scale manufacturer of lighting products, but we also would like to see products produced in customers' workshop. In the meantime, as a leading manufacturer of LED lighting products, we integrate development and manufacturing in-house, specializing in manufacturing various lamps: indoor items including bulbs, tubes, panel lamps, ceiling lamps; and outdoor items including flood lamps and street lamps. Our factories are located in Zhongshan, covering 5,000 m² with more than 150 skilled workers and lighting professionals supporting 10 production lines and key company functions. Through our online B2B platforms (Made-in-China, Alibaba), we export to more than 60 countries. We expect to achieve wonderful success with all of our partners with insisting our mission, 'Creating value for clients, Offering opportunities to staff, Bringing our superior products, reputation and service.'"
-   data-ar="شركة آنهوي تشينشين للأجهزة الكهربائية للإضاءة المحدودة، ومقرها الرئيسي في مدينة خفي بالصين، تلتزم بتقديم حلول إضاءة نظامية لمصانع الإضاءة في الخارج من خلال تصدير آلات الإنتاج والتقنيات والخبرات والمواد. نحن لسنا فقط شركة تصنيع احترافية واسعة النطاق لمنتجات الإضاءة، ولكننا نرغب أيضاً في رؤية المنتجات تُصنع في ورش عمل العملاء. وفي الوقت ذاته، وبصفتنا شركة رائدة في تصنيع منتجات إضاءة LED، نقوم بدمج التطوير والتصنيع داخلياً، متخصصين في تصنيع مصابيح متنوعة: العناصر الداخلية بما في ذلك المصابيح والأنابيب ومصابيح الألواح ومصابيح السقف؛ والعناصر الخارجية بما في ذلك مصابيح الكشافات ومصابيح الشوارع. تقع مصانعنا في مدينة زونغشان، وتغطي مساحة 5000 متر مربع مع أكثر من 150 عاملاً ماهراً ومتخصصاً في الإضاءة يدعمون 10 خطوط إنتاج. ومن خلال منصاتنا الإلكترونية (Made-in-China، Alibaba)، نقوم بالتصدير إلى أكثر من 60 دولة. نتطلع إلى تحقيق نجاح رائع مع جميع شركائنا من خلال الإصرار على مهمتنا: 'خلق قيمة للعملاء، وتوفير الفرص للموظفين، وتقديم منتجاتنا المتميزة وسمعتنا وخدمتنا.'">
-   Anhui Chenxin Lighting (CX Lighting) is a leading LED lighting manufacturer and wholesale supplier for the Egypt market. We provide high-quality LED bulbs, tubes, and flood lights with factory-direct prices for customers in Cairo, Alexandria, and Giza. With over 20 years of experience and 10 professional production lines, we offer systematic lighting solutions and SKD components globally.
-</p>
-        <a href="https://ahcxlight.en.alibaba.com" target="_blank" class="btn" data-en="Check Our B2B Shop →" data-ar="تحقق من متجر B2B لدينا →">Check Our B2B Shop →</a>
+        <div class="strength-desc">
+            <p id="company-intro" data-en="Anhui Chenxin Lighting (CX Lighting) is a leading LED manufacturer for the Egypt market, supporting projects in Cairo, Alexandria, and Giza with 20 years of experience." data-ar="تعد شركة CX Lighting شركة رائدة في تصنيع مصابيح LED للسوق المصري، حيث تدعم المشاريع في القاهرة والإسكندرية والجيزة بخبرة تمتد لـ 20 عامًا.">Anhui Chenxin Lighting (CX Lighting) is a leading LED manufacturer for the Egypt market, supporting projects in Cairo, Alexandria, and Giza with 20 years of experience.</p>
+        </div>
+        <a href="https://ahcxlight.en.alibaba.com" target="_blank" class="btn primary" data-en="Check Our B2B Shop →" data-ar="تحقق من متجر B2B لدينا →">Check Our B2B Shop →</a>
     </section>
 
-    <!-- 转化区-极简表单+埃及适配 -->
     <section class="cta" id="cta">
-        <div class="qr-section-wrapper" style="position: relative; width: 100%; z-index: 10;">
-    <div style="position: absolute; inset-inline-end: 3%; top: 10px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end;">
-        
-        <div style="text-align: center; width: 105px;">
-            <div style="background: #fff; padding: 4px; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                <img src="WhatsApp-QR.png" alt="WhatsApp" style="width: 100%; height: auto; display: block;">
+        <div class="qr-section-wrapper">
+            <div style="display: flex; gap: 20px; justify-content: center;">
+                <div style="text-align: center;">
+                    <img src="WhatsApp-QR.png" alt="WhatsApp QR" style="width: 120px; border-radius: 8px;">
+                    <p style="color: #25D366; font-weight: bold;">WhatsApp</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="WeChat-QR.png" alt="WeChat QR" style="width: 120px; border-radius: 8px;">
+                    <p style="color: #07C160; font-weight: bold;">WeChat</p>
+                </div>
             </div>
-            <p style="margin-top: 4px; color: #25D366; font-size: 11px; font-weight: bold;">WhatsApp</p>
         </div>
-
-        <div style="text-align: center; width: 105px;">
-            <div style="background: #fff; padding: 4px; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-                <img src="WeChat-QR.png" alt="WeChat" style="width: 100%; height: auto; display: block;">
-            </div>
-            <p style="margin-top: 4px; color: #07C160; font-size: 11px; font-weight: bold;">WeChat</p>
-        </div>
-
-    </div>
-</div>
-
-<h2 class="section-title" data-en="Get a Free Quote for Egypt" data-ar="احصل على عرض سعر مجاني لمصر">Get a Free Quote for Egypt</h2>
+        <h2 class="section-title" data-en="Get a Free Quote for Egypt" data-ar="احصل على عرض سعر مجاني لمصر">Get a Free Quote for Egypt</h2>
         <form class="cta-form">
-            <div class="form-group">
-                <input type="text" placeholder="Your Full Name *" data-placeholder-en="Your Full Name *" data-placeholder-ar="الاسم الكامل *" required>
-            </div>
-            <div class="form-group">
-                <input type="tel" placeholder="Your WhatsApp Number *" data-placeholder-en="Your WhatsApp Number *" data-placeholder-ar="رقم WhatsApp *" required>
-            </div>
-            <div class="form-group">
-                <input type="text" placeholder="Product Interest (e.g. LED Flood Light)" data-placeholder-en="Product Interest (e.g. LED Flood Light)" data-placeholder-ar="المنتج المطلوب (مثل LED Flood Light)" required>
-            </div>
+            <div class="form-group"><input type="text" placeholder="Your Name" required></div>
+            <div class="form-group"><input type="tel" placeholder="WhatsApp Number" required></div>
+            <div class="form-group"><input type="text" placeholder="Product Interest" required></div>
             <button type="submit" class="btn primary" data-en="Submit Request" data-ar="إرسال الطلب">Submit Request</button>
         </form>
     </section>
 
-    <!-- 联系方式-完整信息+可点击链接 -->
     <section class="contact">
         <h2 class="section-title" data-en="Contact Us" data-ar="اتصل بنا">Contact Us</h2>
-
-        <p style="margin-bottom: 25px; color: #333; font-weight: bold; font-size: 16px; border-left: 4px solid #000; padding-left: 15px; line-height: 1.4;" 
-           data-en="Our LED solutions are specifically optimized for the Egypt market, supporting local projects in Cairo, Alexandria, and Giza." 
-           data-ar="حلولنا في مجال إضاءة LED محسنة خصيصًا للسوق المصري، وتدعم المشاريع المحلية في القاهرة والإسكندرية والجيزة.">
-           Our LED solutions are specifically optimized for the Egypt market, supporting local projects in Cairo, Alexandria, and Giza.
-        </p>
-
         <div class="contact-info">
             <div class="contact-item">
                 <h4 data-en="Official Website" data-ar="الموقع الرسمي">Official Website</h4>
-                <a href="https://www.ahcxlight.com" target="_blank">https://www.ahcxlight.com</a>
+                <a href="https://www.ahcxlight.com" target="_blank">www.ahcxlight.com</a>
             </div>
             <div class="contact-item">
-                <h4 data-en="B2B Platforms" data-ar="منصات B2B">B2B Platforms</h4>
-                <a href="https://ahcxlight.en.made-in-china.com" target="_blank" data-en="Made-in-China" data-ar="Made-in-China">Made-in-China</a><br>
-               <a href="https://ahcxlight.en.alibaba.com" target="_blank" data-en="Alibaba" data-ar="علي بابا">Alibaba</a>
-            </div>
-            <div class="contact-item">
-                <h4 data-en="Phone & Email" data-ar="الهاتف والبريد الإلكتروني">Phone & Email</h4>
-                <p data-en="Tel: +86-551-65856715" data-ar="هاتف: +86-551-65856715">Tel: +86-551-65856715</p>
-                <p data-en="Cell: +86-18119606995" data-ar="جوال: +86-18119606995">Cell: +86-18119606995</p>
+                <h4 data-en="Email" data-ar="البريد الإلكتروني">Email</h4>
                 <a href="mailto:cxlight@ahcxlight.com">cxlight@ahcxlight.com</a>
             </div>
             <div class="contact-item">
-    <h4 data-en="Address" data-ar="العنوان">Address</h4>
-    <p data-en="Office: No.1009, International Business Center B# block, Huguang RD, Shushan District, Hefei, China" data-ar="المكتب: رقم 1009، مبنى مركز الأعمال الدولي B، شارع هيوغوانغ، منطقة شوشان، هيفاي، الصين">Office: No.1009, International Business Center B# block, Huguang RD, Shushan District, Hefei, China</p>
-    <p data-en="Factory: 5th Floor, Building D, Deshe Industrial Park, Xiaolan Town, Zhongshan City, Guangdong Province, China" data-ar="المصنع: الطابق الخامس، المبنى D، مجمع ديشي الصناعي، بلدة شياولان، مدينة جينغشان، مقاطعة قوانغدونغ، الصين">Factory: 5th Floor, Building D, Deshe Industrial Park, Xiaolan Town, Zhongshan City, Guangdong Province, China</p>
-</div>
+                <h4 data-en="Address" data-ar="العنوان">Address</h4>
+                <p data-en="Hefei, Anhui, China" data-ar="هيفاي، آنهوي، الصين">Hefei, Anhui, China</p>
+            </div>
         </div>
     </section>
 
-    <!-- 页脚-极简+官网跳转 -->
     <footer class="footer">
-        <div class="footer-links">
-            <a href="https://www.ahcxlight.com" target="_blank" data-en="Official Website" data-ar="الموقع الرسمي">Official Website</a>
-            <a href="#products" data-en="Products" data-ar="المنتجات">Products</a>
-            <a href="#cta" data-en="Get Quote" data-ar="احصل على عرض سعر">Get Quote</a>
-            <a href="mailto:cxlight@ahcxlight.com" data-en="Email Us" data-ar="إرسال بريد إلكتروني">Email Us</a>
-        </div>
-        <p class="copyright" data-en="© 2026 CX Lighting (Anhui Chenxin Lighting Electrical Appliance Co.,Ltd). All Rights Reserved." data-ar="© 2026 CX الإضاءة (شركة أنهوي تشينسين للمنتجات الكهربائية للإضاءة). جميع الحقوق محفوظة.">© 2026 CX Lighting (Anhui Chenxin Lighting Electrical Appliance Co.,Ltd). All Rights Reserved.</p>
+        <p class="copyright">© 2026 CX Lighting. All Rights Reserved.</p>
     </footer>
 
-    <!-- 双语切换核心JS -->
     <script>
-        // 语言切换逻辑
         const enBtn = document.getElementById('en-btn');
         const arBtn = document.getElementById('ar-btn');
         const body = document.body;
 
-        // 切换到英文
-        enBtn.addEventListener('click', () => {
-            body.classList.remove('ar');
-            enBtn.classList.add('active');
-            arBtn.classList.remove('active');
-            updateLanguage('en');
-        });
-
-        // 切换到阿拉伯文
-        arBtn.addEventListener('click', () => {
-            body.classList.add('ar');
-            arBtn.classList.add('active');
-            enBtn.classList.remove('active');
-            updateLanguage('ar');
-        });
-
-        // 更新页面文字
         function updateLanguage(lang) {
-            // 更新普通文本
             document.querySelectorAll('[data-en], [data-ar]').forEach(el => {
                 el.textContent = el.getAttribute(`data-${lang}`);
             });
-            // 更新输入框占位符
-            document.querySelectorAll('[data-placeholder-en], [data-placeholder-ar]').forEach(el => {
-                el.placeholder = el.getAttribute(`data-placeholder-${lang}`);
-            });
         }
 
-        // 初始加载英文
-        updateLanguage('en');
+        enBtn.addEventListener('click', () => { body.classList.remove('ar'); updateLanguage('en'); enBtn.classList.add('active'); arBtn.classList.remove('active'); });
+        arBtn.addEventListener('click', () => { body.classList.add('ar'); updateLanguage('ar'); arBtn.classList.add('active'); enBtn.classList.remove('active'); });
     </script>
 </body>
 </html>
