@@ -187,27 +187,7 @@
             0%, 45% {
                 /* Factory 1：常规深阴影 */
                 text-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            }
-            50%, 95% {
-                /* Factory 2：复合阴影（一层模糊扩散 + 一层描边式清晰阴影） */
-                /* 就像给字体打上了高光和清晰的轮廓，在白背景下极其清晰 */
-                text-shadow: 0 4px 15px rgba(0,0,0,0.5), 0 0 25px rgba(0,0,0,0.3);
-            }
-            100% {
-                text-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            }
-        }
-
-        /* 按钮动画：统统保持不动 */
-        .btn {
-            animation: btnStyleSync 15s infinite ease-in-out;
-            display: inline-block !important;
-            min-width: 200px !important;
-            text-align: center !important;
-            padding: 12px 0 !important;
-            font-size: 16px !important; 
-            font-weight: 600 !important;
-            text-decoration: none !important; 
+           
             transition: all 0.3s ease !important; 
             margin: 10px 5px !important;
             z-index: 5;
