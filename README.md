@@ -1,21 +1,18 @@
-# Anhui Chenxin Lighting (CX Lighting) - LED Solutions for Egypt 🇪🇬
+# Anhui Chenxin Lighting (CX Lighting) - Professional LED Factory for Egypt 🇪🇬
 
-Welcome to the dedicated project repository for the Egyptian market. We specialize in providing high-quality LED lighting products and systematic SKD production solutions.
+High-quality LED lighting products and systematic SKD production solutions optimized for Cairo, Alexandria, and Giza.
 
-## 🔗 Quick Links
-- **Official Landing Page:** [https://anhuichenxinlight-cell.github.io/Egypt.github.io/](https://anhuichenxinlight-cell.github.io/Egypt.github.io/)
-- **Main Website:** [https://www.ahcxlight.com](https://www.ahcxlight.com)
-- **B2B Shop (Made-in-China):** [Visit our MIC Store](https://ahcxlight.en.made-in-china.com/)
+## 🚀 Key Resources
+- **Egypt Service Page:** [https://anhuichenxinlight-cell.github.io/Egypt.github.io/](https://anhuichenxinlight-cell.github.io/Egypt.github.io/)
+- **Group Official Site:** [www.ahcxlight.com](https://www.ahcxlight.com)
+- **Verified B2B Shop:** [Made-in-China Store](https://ahcxlight.en.made-in-china.com/)
 
-## 🏗️ What We Provide for Egypt Market
-* **Complete LED Products:** LED Bulbs, T8 Tubes, Flood Lights, and Street Lights (AC 85-265V).
-* **SKD/CKD Solutions:** We export components and production machines to help local Egyptian factories.
-* **Certifications:** All products are CE & RoHS certified, optimized for the environment in Cairo and Alexandria.
+## 🏗️ Our Core Business
+* **Product Supply:** Wholesale LED Bulbs (A/T Series), T8 Tubes, IP65 Flood Lights, and Solar Street Lights.
+* **Factory Solutions:** We export LED production machines and provide technical training for local assembly in Egypt.
+* **Quality Assurance:** Wide voltage design (AC 85-265V) to handle power fluctuations, fully CE & RoHS certified.
 
-## 📅 Meet Us at Canton Fair 2026
-- **Booth Number:** 15.4-G21
-- **Location:** Guangzhou, China
-
-## 📞 Contact Information
+## 📞 Get a Quote Today
 - **WhatsApp:** [+86-18119606995](https://wa.me/8618119606995)
 - **Email:** [cxlight@ahcxlight.com](mailto:cxlight@ahcxlight.com)
+- **Factory Address:** Zhongshan City, Guangdong Province, China.
